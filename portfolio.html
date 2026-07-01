@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohd Aatif Sayyed — Cloud Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0A0E17;
+    --bg-alt: #0D1220;
+    --panel: #121826;
+    --panel-2: #161E2E;
+    --border: #232C3D;
+    --text: #E7ECF4;
+    --text-dim: #8A96AC;
+    --text-faint: #576079;
+    --orange: #FF9900;
+    --orange-dim: #B96F00;
+    --green: #3ECF8E;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+ 
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:'';
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size:48px 48px;
+    pointer-events:none;
+    z-index:0;
+  }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--orange); color:#0A0E17; }
+ 
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; position:relative; z-index:1; }
+ 
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--orange); outline-offset:3px; }
+ 
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+ 
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,14,23,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:var(--font-mono); font-weight:700; font-size:15px;
+    letter-spacing:0.02em; color:var(--text);
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand .dot{ width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); }
+  .navlinks{ display:flex; gap:28px; font-family:var(--font-mono); font-size:13px; color:var(--text-dim); }
+  .navlinks a{ position:relative; padding:4px 0; transition:color .2s; }
+  .navlinks a:hover{ color:var(--orange); }
+  .navlinks a::before{ content:'/'; color:var(--text-faint); margin-right:6px; }
+  .navlinks a:hover::before{ color:var(--orange); }
+  .navtoggle{ display:none; }
+ 
+  @media (max-width:760px){
+    .navlinks{ display:none; }
+  }
+ 
+  /* ---------- HERO ---------- */
+  .hero{ padding:96px 0 80px; position:relative; }
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;
+  }
+  @media (max-width:820px){ .hero-grid{ grid-template-columns:1fr; } }
+ 
+  .eyebrow{
+    font-family:var(--font-mono); font-size:12px; color:var(--green);
+    letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow .bar{ width:24px; height:1px; background:var(--green); display:inline-block; }
+ 
+  h1.name{
+    font-family:var(--font-display); font-weight:700;
+    font-size:clamp(34px, 5.5vw, 54px);
+    line-height:1.06; letter-spacing:-0.01em; margin-bottom:16px;
+  }
+  h1.name .accent{ color:var(--orange); }
+ 
+  .role-line{
+    font-family:var(--font-mono); font-size:15px; color:var(--text-dim); margin-bottom:28px;
+  }
+ 
+  .terminal{
+    background:var(--panel); border:1px solid var(--border); border-radius:10px;
+    font-family:var(--font-mono); font-size:13px; overflow:hidden;
+    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);
+  }
+  .terminal-head{
+    display:flex; align-items:center; gap:8px; padding:10px 14px;
+    border-bottom:1px solid var(--border); background:var(--panel-2);
+  }
+  .terminal-head span{ width:10px; height:10px; border-radius:50%; background:#3a4356; }
+  .terminal-head .tlabel{ margin-left:8px; color:var(--text-faint); font-size:11px; }
+  .terminal-body{ padding:18px 18px 20px; color:var(--text-dim); }
+  .terminal-body .line{ margin-bottom:10px; }
+  .terminal-body .prompt{ color:var(--green); }
+  .terminal-body .out{ color:var(--text); }
+  .terminal-body .cursor{
+    display:inline-block; width:8px; height:14px; background:var(--orange);
+    margin-left:2px; vertical-align:middle; animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+ 
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .pill{
+    font-family:var(--font-mono); font-size:11px; color:var(--text-dim);
+    border:1px solid var(--border); padding:4px 10px; border-radius:5px;
+    background:var(--bg-alt);
+  }
+ 
+  .hero-cta{ display:flex; gap:14px; margin-top:28px; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--font-mono); font-size:13px; padding:12px 20px; border-radius:7px;
+    border:1px solid var(--border); transition:all .2s; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{ background:var(--orange); color:#141005; border-color:var(--orange); font-weight:600; }
+  .btn-primary:hover{ background:#ffab26; }
+  .btn-ghost:hover{ border-color:var(--orange); color:var(--orange); }
+ 
+  /* profile badge card */
+  .badge-card{
+    position:relative; background:var(--panel); border:1px solid var(--border);
+    border-radius:14px; padding:22px; max-width:320px; margin:0 auto;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,0.7);
+  }
+  .badge-tag{
+    position:absolute; top:-12px; right:18px; background:var(--orange); color:#141005;
+    font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:0.05em;
+    padding:5px 10px; border-radius:5px; transform:rotate(2deg);
+  }
+  .badge-photo{
+    width:100%; aspect-ratio:3/3.6; border-radius:9px; overflow:hidden; border:1px solid var(--border);
+    margin-bottom:16px;
+  }
+  .badge-photo img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.03) contrast(1.03); }
+  .badge-name{ font-family:var(--font-display); font-weight:600; font-size:18px; }
+  .badge-role{ font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim); margin-top:4px; }
+  .badge-meta{ margin-top:14px; padding-top:14px; border-top:1px dashed var(--border); font-family:var(--font-mono); font-size:11px; color:var(--text-faint); display:flex; justify-content:space-between; }
+ 
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:76px 0; border-top:1px solid var(--border); position:relative; }
+  .sec-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:36px; }
+  .sec-index{ font-family:var(--font-mono); font-size:12px; color:var(--orange); }
+  h2.sec-title{ font-family:var(--font-display); font-weight:600; font-size:clamp(24px,3vw,32px); }
+  .sec-sub{ font-family:var(--font-mono); font-size:12px; color:var(--text-faint); margin-left:auto; }
+ 
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+ 
+  /* ---------- ABOUT / STATS ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:48px; }
+  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-text p{ color:var(--text-dim); font-size:15.5px; margin-bottom:16px; max-width:52ch; }
+  .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .stat-tile{
+    background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:16px 18px;
+  }
+  .stat-num{ font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--orange); }
+  .stat-label{ font-family:var(--font-mono); font-size:11px; color:var(--text-dim); margin-top:4px; }
+ 
+  /* ---------- SKILLS ---------- */
+  .skills-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; }
+  @media (max-width:900px){ .skills-grid{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:520px){ .skills-grid{ grid-template-columns:1fr; } }
+  .skill-col-title{
+    font-family:var(--font-mono); font-size:11px; color:var(--green); letter-spacing:0.06em;
+    text-transform:uppercase; margin-bottom:14px; display:flex; align-items:center; gap:8px;
+  }
+  .skill-col-title::before{ content:'#'; color:var(--text-faint); }
+  .skill-item{ font-size:14px; color:var(--text-dim); padding:6px 0; border-bottom:1px dashed var(--border); }
+  .skill-item:last-child{ border-bottom:none; }
+ 
+  /* ---------- EXPERIENCE ---------- */
+  .exp-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:28px 30px;
+    display:grid; grid-template-columns:200px 1fr; gap:26px;
+  }
+  @media (max-width:700px){ .exp-card{ grid-template-columns:1fr; } }
+  .exp-when{ font-family:var(--font-mono); font-size:12px; color:var(--text-faint); }
+  .exp-role{ font-family:var(--font-display); font-size:19px; font-weight:600; margin-bottom:2px; }
+  .exp-org{ font-family:var(--font-mono); font-size:13px; color:var(--orange); margin-bottom:14px; }
+  .exp-card ul{ list-style:none; }
+  .exp-card li{ font-size:14.5px; color:var(--text-dim); padding-left:18px; position:relative; margin-bottom:10px; }
+  .exp-card li::before{ content:'▹'; color:var(--green); position:absolute; left:0; }
+ 
+  /* ---------- PROJECTS ---------- */
+  .project{
+    background:var(--panel); border:1px solid var(--border); border-radius:12px;
+    padding:28px 30px; margin-bottom:24px;
+  }
+  .project-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-bottom:6px; }
+  .project-title{ font-family:var(--font-display); font-size:20px; font-weight:600; }
+  .project-date{ font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint); white-space:nowrap; }
+  .project-desc{ color:var(--text-dim); font-size:14.5px; margin:12px 0 18px; max-width:70ch; }
+  .project-desc li{ list-style:none; padding-left:18px; position:relative; margin-bottom:8px; }
+  .project-desc li::before{ content:'▹'; color:var(--orange); position:absolute; left:0; }
+ 
+  /* pipeline signature element */
+  .pipeline{
+    font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim);
+    background:var(--bg-alt); border:1px solid var(--border); border-radius:8px;
+    padding:14px 16px; overflow-x:auto; white-space:nowrap; position:relative; margin-bottom:16px;
+  }
+  .pipeline .stage{ color:var(--text); }
+  .pipeline .arrow{ color:var(--orange); margin:0 8px; }
+  .pipeline .flow-dot{
+    position:absolute; top:50%; left:16px; width:6px; height:6px; border-radius:50%;
+    background:var(--green); box-shadow:0 0 8px var(--green);
+    animation:flow 4.5s linear infinite;
+  }
+  @keyframes flow{
+    0%{ left:16px; opacity:0; }
+    8%{ opacity:1; }
+    92%{ opacity:1; }
+    100%{ left:calc(100% - 20px); opacity:0; }
+  }
+ 
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag{
+    font-family:var(--font-mono); font-size:10.5px; color:var(--text-dim);
+    border:1px solid var(--border); border-radius:4px; padding:3px 8px;
+  }
+ 
+  /* ---------- CASE STUDY ---------- */
+  .case-panel{
+    background:linear-gradient(160deg, var(--panel) 0%, var(--bg-alt) 100%);
+    border:1px solid var(--border); border-radius:14px; padding:34px;
+  }
+  .case-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; }
+  .case-kicker{ font-family:var(--font-mono); font-size:11px; color:var(--green); text-transform:uppercase; letter-spacing:0.06em; }
+  .case-title{ font-family:var(--font-display); font-size:22px; font-weight:700; margin-top:6px; }
+  .case-team{ font-family:var(--font-mono); font-size:11px; color:var(--text-faint); }
+  .case-body{ color:var(--text-dim); font-size:14.5px; margin-top:16px; max-width:75ch; }
+  .case-cols{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:22px; }
+  @media (max-width:700px){ .case-cols{ grid-template-columns:1fr; } }
+  .case-cols h4{ font-family:var(--font-mono); font-size:11.5px; color:var(--orange); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px; }
+  .case-cols ul{ list-style:none; }
+  .case-cols li{ font-size:14px; color:var(--text-dim); padding-left:16px; position:relative; margin-bottom:8px; }
+  .case-cols li::before{ content:'—'; color:var(--text-faint); position:absolute; left:0; }
+ 
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+  @media (max-width:820px){ .cert-grid{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:520px){ .cert-grid{ grid-template-columns:1fr; } }
+  .cert-card{
+    position:relative; background:var(--panel); border:1px solid var(--border); border-radius:10px;
+    padding:20px 18px 18px; overflow:hidden;
+  }
+  .cert-card::before{
+    content:''; position:absolute; top:0; right:0; width:0; height:0;
+    border-style:solid; border-width:0 34px 34px 0; border-color:transparent var(--orange) transparent transparent;
+  }
+  .cert-card .cert-icon{ font-family:var(--font-mono); font-size:10px; color:#141005; position:absolute; top:5px; right:4px; font-weight:700; }
+  .cert-name{ font-family:var(--font-display); font-size:15px; font-weight:600; margin-bottom:8px; padding-right:20px; }
+  .cert-date{ font-family:var(--font-mono); font-size:11px; color:var(--text-faint); }
+  .cert-issuer{ font-family:var(--font-mono); font-size:10.5px; color:var(--green); margin-top:8px; }
+ 
+  .achv-row{ margin-top:18px; display:flex; flex-direction:column; gap:10px; }
+  .achv{ font-size:14px; color:var(--text-dim); padding-left:18px; position:relative; }
+  .achv::before{ content:'★'; color:var(--orange); position:absolute; left:0; font-size:11px; top:3px; }
+ 
+  /* ---------- EDUCATION ---------- */
+  .edu-item{
+    display:grid; grid-template-columns:1fr auto; gap:16px; padding:18px 0;
+    border-bottom:1px dashed var(--border);
+  }
+  .edu-item:last-child{ border-bottom:none; }
+  .edu-degree{ font-family:var(--font-display); font-size:16.5px; font-weight:600; }
+  .edu-school{ font-family:var(--font-mono); font-size:12px; color:var(--text-dim); margin-top:3px; }
+  .edu-score{ font-family:var(--font-mono); font-size:12px; color:var(--orange); text-align:right; }
+  .edu-year{ font-family:var(--font-mono); font-size:11px; color:var(--text-faint); text-align:right; margin-top:3px; }
+ 
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{ border-top:1px solid var(--border); padding:72px 0 40px; }
+  .contact-inner{ text-align:center; }
+  .contact-eyebrow{ font-family:var(--font-mono); font-size:12px; color:var(--green); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px; }
+  h2.contact-title{ font-family:var(--font-display); font-weight:700; font-size:clamp(26px,4vw,40px); margin-bottom:22px; }
+  .contact-links{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:26px; }
+  .clink{
+    font-family:var(--font-mono); font-size:13px; border:1px solid var(--border); border-radius:8px;
+    padding:12px 20px; transition:all .2s;
+  }
+  .clink:hover{ border-color:var(--orange); color:var(--orange); }
+  .footer-bottom{ margin-top:56px; text-align:center; font-family:var(--font-mono); font-size:11px; color:var(--text-faint); }
+</style>
+</head>
+<body>
+ 
+<header>
+  <nav class="wrap">
+    <div class="brand"><span class="dot"></span>aatif@cloud:~$</div>
+    <div class="navlinks">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#experience">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#certifications">certs</a>
+      <a href="#contact">contact</a>
+    </div>
+  </nav>
+</header>
+ 
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="bar"></span>available for internships &amp; junior cloud roles</div>
+        <h1 class="name">Mohd Aatif <span class="accent">Sayyed</span></h1>
+        <div class="role-line">Cloud Engineer — AWS Serverless · DevOps in progress · Mumbai, IN</div>
+ 
+        
+ 
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects">View projects →</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+ 
+      <div>
+        <div class="badge-card">
+          <div class="badge-tag">AWS ACCREDITED</div>
+          <div class="badge-photo">
+            <img src="me.png" alt="Portrait of Mohd Aatif Sayyed">
+          </div>
+          <div class="badge-name">Mohd Aatif Sayyed</div>
+          <div class="badge-role">Cloud &amp; DevOps · MCA 2024–2026</div>
+          <div class="badge-meta">
+            <span>MUM, IN</span>
+            <span>6× AWS certs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-index">01</span>
+        <h2 class="sec-title">About</h2>
+        <span class="sec-sub">// summary.txt</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm a cloud-focused MCA student who spends most of my time inside the AWS console — wiring Lambda functions to DynamoDB, routing traffic through API Gateway, and learning to keep it all reliable with Docker, Kubernetes and CI/CD.</p>
+          <p>A 4-month AWS Cloud Internship at F13 Technologies took me from six certifications in a month to shipping real serverless systems. Outside of cloud work, I keep my problem-solving sharp with Data Structures and Algorithms — 80+ LeetCode problems solved and counting.</p>
+        </div>
+        <div class="stat-grid reveal">
+          <div class="stat-tile"><div class="stat-num">6</div><div class="stat-label">AWS certifications</div></div>
+          <div class="stat-tile"><div class="stat-num">80+</div><div class="stat-label">LeetCode problems</div></div>
+          <div class="stat-tile"><div class="stat-num">4 mo</div><div class="stat-label">AWS cloud internship</div></div>
+          <div class="stat-tile"><div class="stat-num">3</div><div class="stat-label">serverless projects shipped</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-index">02</span>
+        <h2 class="sec-title">Skills</h2>
+        <span class="sec-sub">// stack.yaml</span>
+      </div>
+      <div class="skills-grid reveal">
+        <div>
+          <div class="skill-col-title">languages</div>
+          <div class="skill-item">Python</div>
+          <div class="skill-item">Java</div>
+          <div class="skill-item">SQL (MySQL)</div>
+          <div class="skill-item">YAML</div>
+        </div>
+        <div>
+          <div class="skill-col-title">cloud &amp; devops</div>
+          <div class="skill-item">AWS — Compute, Storage, Networking &amp; Security</div>
+          <div class="skill-item">Linux &amp; Bash Scripting</div>
+          <div class="skill-item">Docker</div>
+          <div class="skill-item">Kubernetes (kubectl)</div>
+          <div class="skill-item">CI/CD pipelines</div>
+        </div>
+        <div>
+          <div class="skill-col-title">tools</div>
+          <div class="skill-item">Git &amp; GitHub</div>
+          <div class="skill-item">VS Code</div>
+          <div class="skill-item">Terraform</div>
+          <div class="skill-item">Android Studio</div>
+          <div class="skill-item">Figma</div>
+        </div>
+        <div>
+          <div class="skill-col-title">working style</div>
+          <div class="skill-item">Communication</div>
+          <div class="skill-item">Critical thinking</div>
+          <div class="skill-item">Problem-solving</div>
+          <div class="skill-item">Adaptability</div>
+          <div class="skill-item">Decision-making</div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-index">03</span>
+        <h2 class="sec-title">Experience</h2>
+        <span class="sec-sub">// work_history</span>
+      </div>
+      <div class="exp-card reveal">
+        <div>
+          <div class="exp-when">Jan 2026 — May 2026</div>
+        </div>
+        <div>
+          <div class="exp-role">AWS Cloud Intern</div>
+          <div class="exp-org">F13 Technologies</div>
+          
+            <img src="F13.png" alt="Portrait of Mohd Aatif Sayyed">
+          
+          
+          <ul>
+            <li>Completed 6 AWS Cloud certifications within one month, building a solid foundation in cloud architecture and security.</li>
+            <li>Used EC2, S3, IAM, VPC, SNS, Cognito and DynamoDB across project work, gaining hands-on experience deploying to the cloud.</li>
+            <li>Collaborated with a team to build and deploy cloud-based solutions in real-world environments.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-index">04</span>
+        <h2 class="sec-title">Projects</h2>
+        <span class="sec-sub">// serverless builds</span>
+      </div>
+ 
+      <div class="project reveal">
+        <div class="project-top">
+          <div class="project-title">WebChat — Real-Time Employee Chat &amp; Announcements</div>
+          <div class="project-date">March 2026</div>
+        </div>
+        <div class="pipeline">
+          <span class="flow-dot"></span>
+          <span class="stage">Client</span><span class="arrow">→</span><span class="stage">CloudFront/S3</span><span class="arrow">→</span><span class="stage">Cognito</span><span class="arrow">→</span><span class="stage">API Gateway WS</span><span class="arrow">→</span><span class="stage">Lambda</span><span class="arrow">→</span><span class="stage">DynamoDB</span>
+        </div>
+        <ul class="project-desc">
+          <li>Built a real-time web chat app supporting 50+ concurrent users and 1000+ messages a day on API Gateway WebSocket routes.</li>
+          <li>Integrated IAM, Lambda, DynamoDB and Cognito for scalable backend logic, auth and data management.</li>
+          <li>Added an SNS-powered admin broadcast so HR announcements reach 100+ users instantly over WebSocket and email.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">API Gateway WebSocket</span><span class="tag">Lambda</span><span class="tag">DynamoDB</span>
+          <span class="tag">Cognito</span><span class="tag">SNS + SES</span><span class="tag">S3 / CloudFront</span>
+        </div>
+      </div>
+ 
+      <div class="project reveal">
+        <div class="project-top">
+          <div class="project-title">Resume Parser &amp; Skill Matcher for Recruiters</div>
+          <div class="project-date">Feb 2026</div>
+        </div>
+        <div class="pipeline">
+          <span class="flow-dot"></span>
+          <span class="stage">S3 Upload</span><span class="arrow">→</span><span class="stage">Lambda</span><span class="arrow">→</span><span class="stage">Textract</span><span class="arrow">→</span><span class="stage">Comprehend</span><span class="arrow">→</span><span class="stage">DynamoDB</span><span class="arrow">→</span><span class="stage">API Gateway</span><span class="arrow">→</span><span class="stage">Dashboard</span>
+        </div>
+        <ul class="project-desc">
+          <li>Built an event-driven resume parsing pipeline across S3, Lambda, Textract, Comprehend, DynamoDB and API Gateway to process 100+ resumes.</li>
+          <li>Automated PDF text extraction with NLP, cutting manual screening effort by roughly 70%.</li>
+          <li>Designed a Jaccard-similarity matching engine at 80%+ accuracy, exposed as a REST API, improving system throughput by 30%.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">S3</span><span class="tag">Lambda</span><span class="tag">Textract</span>
+          <span class="tag">Comprehend</span><span class="tag">DynamoDB</span><span class="tag">API Gateway</span>
+        </div>
+      </div>
+ 
+      <div class="project reveal">
+        <div class="project-top">
+          <div class="project-title">Skill Share Marketplace</div>
+          <div class="project-date">Aug 2025</div>
+        </div>
+        <div class="pipeline">
+          <span class="flow-dot"></span>
+          <span class="stage">Static Frontend</span><span class="arrow">→</span><span class="stage">S3 Hosting</span><span class="arrow">→</span><span class="stage">Deployment</span>
+        </div>
+        <ul class="project-desc">
+          <li>Managed cloud deployments on AWS, including S3 static hosting, across 5+ releases to increase application availability.</li>
+          <li>Ran market research and competitor analysis that fed 2+ product improvements.</li>
+          <li>Worked cross-functionally on feature testing, catching 15+ bugs to raise overall product quality.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">AWS S3</span><span class="tag">Static Hosting</span><span class="tag">QA</span>
+        </div>
+      </div>
+ 
+      <div class="case-panel reveal" style="margin-top:36px;">
+        <div class="case-top">
+          <div>
+            <div class="case-kicker">Case Study</div>
+            <div class="case-title">Zerodha — Hybrid Cloud Architecture</div>
+          </div>
+          <div class="case-team">team: ojasvi mohapatra · abdulharis shaikh · mohamed reefath · aatif sayyed</div>
+        </div>
+        <div class="case-body">
+          A group research case study analyzing how one of India's largest brokerages balances a time-sensitive trading environment: core Order Management kept on-premise for latency and control, with AWS handling customer-facing scale — EC2, Auto Scaling, ELB, S3, and AWS Batch — plus Terraform, EKS and GitLab CI/CD for delivery.
+        </div>
+        <div class="case-cols">
+          <div>
+            <h4>On-prem — control</h4>
+            <ul>
+              <li>Order Management System (OMS)</li>
+              <li>Direct leased-line links to NSE/BSE</li>
+              <li>Kept off cloud to avoid latency risk</li>
+            </ul>
+          </div>
+          <div>
+            <h4>AWS — scale</h4>
+            <ul>
+              <li>EC2, Auto Scaling, ELB/ALB for traffic</li>
+              <li>AWS Batch for P&amp;L / background jobs</li>
+              <li>S3 storage, EKS + Terraform for delivery</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="certifications">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-index">05</span>
+        <h2 class="sec-title">Certifications &amp; Achievements</h2>
+        <span class="sec-sub">// aws_training_and_certification</span>
+      </div>
+      <div class="cert-grid reveal">
+        <div class="cert-card">
+          <span class="cert-icon">✓</span>
+          <div class="cert-name">Kubernetes for Absolute Beginner</div>
+          <div class="cert-date">Completed June, 2026</div>
+          <div class="cert-issuer">KodeKloud &amp; Certification</div><br>
+          <a class="clink" href="https://drive.google.com/file/d/14ByM-1yoKhmrlD-M-0AODrsPwhXjw-8r/view" target="_blank" rel="noopener">view</a>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">✓</span>
+          <div class="cert-name">AWS Technical Essentials</div>
+          <div class="cert-date">Completed Jan 30, 2026</div>
+          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
+          <a class="clink" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos1a64958b-9bcf-4ce9-91ce-5a0d82ceedec.pdf" target="_blank" rel="noopener">view</a>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">✓</span>
+          <div class="cert-name">AWS Partner: Cloud Economics Essentials</div>
+          <div class="cert-date">Completed Jan 31, 2026</div>
+          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
+          <a class="clink" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos1a64958b-9bcf-4ce9-91ce-5a0d82ceedec.pdf" target="_blank" rel="noopener">view</a>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">✓</span>
+          <div class="cert-name">AWS Partner: Accreditation (Technical)</div>
+          <div class="cert-date">Completed Feb 3, 2026</div>
+          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
+          <a class="clink" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos1a64958b-9bcf-4ce9-91ce-5a0d82ceedec.pdf" target="_blank" rel="noopener">view</a>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">✓</span>
+          <div class="cert-name">AWS Partner: Containers on AWS (Technical)</div>
+          <div class="cert-date">Completed Feb 3, 2026</div>
+          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
+          <a class="clink" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos1a64958b-9bcf-4ce9-91ce-5a0d82ceedec.pdf" target="_blank" rel="noopener">view</a>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">✓</span>
+          <div class="cert-name">AWS Partner: Digital Sovereignty on AWS (Technical)</div>
+          <div class="cert-date">Completed Feb 7, 2026</div>
+          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
+          <a class="clink" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos1a64958b-9bcf-4ce9-91ce-5a0d82ceedec.pdf" target="_blank" rel="noopener">view</a>
+        </div>
+        <div class="cert-card">
+          <span class="cert-icon">✓</span>
+          <div class="cert-name">AWS Partner: Generative AI Essentials</div>
+          <div class="cert-date">Completed Feb 12, 2026</div>
+          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
+          <a class="clink" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos1a64958b-9bcf-4ce9-91ce-5a0d82ceedec.pdf" target="_blank" rel="noopener">view</a>
+        </div>
+        
+        <div class="cert-card">
+          <span class="cert-icon">✓</span>
+          <div class="cert-name">TechMaze Competition</div>
+          <div class="cert-date">Completed Sep, 2025</div>
+          <div class="cert-issuer">Campus &amp; Certification</div><br>
+          <a class="clink" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos0530f666-f31d-456e-826c-cc37f85b6b1f.jpeg" target="_blank" rel="noopener">view</a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-index">06</span>
+        <h2 class="sec-title">Education</h2>
+        <span class="sec-sub">// academic_record</span>
+      </div>
+      <div class="reveal">
+        <div class="edu-item">
+          <div>
+            <div class="edu-degree">Master of Computer Applications (MCA)</div>
+            <div class="edu-school">JECRC University, Jaipur</div>
+          </div>
+          <div>
+            <div class="edu-score">8.64 SGPA</div>
+            <div class="edu-year">2024 — 2026</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-degree">Bachelor of Science, Computer Science</div>
+            <div class="edu-school">Mumbai University College, Mumbai</div>
+          </div>
+          <div>
+            <div class="edu-score">7.9 CGPA</div>
+            <div class="edu-year">2021 — 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+ 
+<footer id="contact">
+  <div class="wrap contact-inner reveal">
+    <div class="contact-eyebrow">// get in touch</div>
+    <h2 class="contact-title">Let's build something on AWS.</h2>
+    <p style="color:var(--text-dim); font-size:15px; max-width:52ch; margin:0 auto;">Open to cloud, DevOps and backend-engineering roles and internships. Reach out any of these ways.</p>
+    <div class="contact-links">
+      <a class="clink" href="mailto:mynameisatif2003@gmail.com">✉ mynameisatif2003@gmail.com</a>
+      <a class="clink" href="tel:+919082680515">☎ 9082680515</a>
+      <a class="clink" href="https://www.linkedin.com/in/mohd-aatif-sayyed/" target="_blank" rel="noopener">Linkedin</a>
+      <a class="clink" href="https://github.com/mynameisatif" target="_blank" rel="noopener">Github</a>
+      <a class="clink" href="https://leetcode.com/u/mynameisatif/" target="_blank" rel="noopener">LeetCode</a>
+    </div>
+    <div class="footer-bottom">Mumbai, India — built with AWS-grade attention to detail.</div>
+  </div>
+</footer>
+ 
+<script>
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, { threshold:0.12 });
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+ 
+</body>
+</html>
+ 
