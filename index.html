@@ -23,7 +23,29 @@
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+    --grid-line: rgba(255,255,255,0.02);
+    --node-color: 231,236,244;
+    --link-color: 62,207,142;
+    --glow-strength: 0.28;
   }
+
+  html[data-theme="light"]{
+    --bg:#F3F6FB;
+    --bg-alt:#EAEFF7;
+    --panel:#FFFFFF;
+    --panel-2:#F4F7FC;
+    --border:#DEE4EF;
+    --text:#0F1420;
+    --text-dim:#525C71;
+    --text-faint:#8892A6;
+    --grid-line: rgba(15,20,32,0.035);
+    --node-color: 20,26,40;
+    --link-color: 217,133,0;
+    --glow-strength: 0.16;
+  }
+
+  html{ transition:background .35s ease; }
+  body{ transition:background .35s ease, color .35s ease; }
  
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
@@ -35,16 +57,70 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  body::before{
-    content:'';
-    position:fixed; inset:0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size:48px 48px;
-    pointer-events:none;
-    z-index:0;
+  /* ---------- ANIMATED CLOUD/DEVOPS BACKGROUND ---------- */
+  #bg-canvas{
+    position:fixed; inset:0; width:100%; height:100%;
+    z-index:0; pointer-events:none; will-change:transform;
   }
+  .bg-glow-layer{
+    position:fixed; inset:0; z-index:0; pointer-events:none; will-change:transform;
+  }
+  .bg-glow{
+    position:absolute; border-radius:50%; filter:blur(90px);
+    opacity:var(--glow-strength); will-change:transform;
+  }
+  .glow-1{
+    width:440px; height:440px; top:-120px; left:-100px;
+    background:radial-gradient(circle, var(--orange), transparent 70%);
+    animation:drift1 24s ease-in-out infinite;
+  }
+  .glow-2{
+    width:380px; height:380px; top:38%; right:-140px;
+    background:radial-gradient(circle, var(--green), transparent 70%);
+    animation:drift2 28s ease-in-out infinite;
+  }
+  .glow-3{
+    width:320px; height:320px; bottom:-100px; left:28%;
+    background:radial-gradient(circle, var(--orange-dim), transparent 70%);
+    animation:drift3 32s ease-in-out infinite;
+  }
+  @keyframes drift1{ 0%,100%{ transform:translate(0,0) rotate(0deg) scale(1); } 50%{ transform:translate(70px,50px) rotate(18deg) scale(1.08); } }
+  @keyframes drift2{ 0%,100%{ transform:translate(0,0) rotate(0deg) scale(1); } 50%{ transform:translate(-60px,70px) rotate(-14deg) scale(1.1); } }
+  @keyframes drift3{ 0%,100%{ transform:translate(0,0) rotate(0deg) scale(1); } 50%{ transform:translate(50px,-60px) rotate(16deg) scale(1.05); } }
+
+  /* ---------- FLOATING CLOUD SILHOUETTES ---------- */
+  .bg-clouds{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    overflow:hidden; will-change:transform;
+  }
+  .cloud-shape{
+    position:absolute; color:var(--text-faint); will-change:transform;
+  }
+  .cloud-shape svg{ display:block; width:100%; height:100%; }
+  @keyframes cloud-drift-a{
+    0%{ transform:translate(-6vw,0) scale(var(--s,1)); }
+    50%{ transform:translate(6vw,-2.4vh) scale(var(--s,1)); }
+    100%{ transform:translate(-6vw,0) scale(var(--s,1)); }
+  }
+  @keyframes cloud-drift-b{
+    0%{ transform:translate(5vw,0) scale(var(--s,1)); }
+    50%{ transform:translate(-5vw,2.2vh) scale(var(--s,1)); }
+    100%{ transform:translate(5vw,0) scale(var(--s,1)); }
+  }
+
+  /* ---------- THEME TOGGLE ---------- */
+  .theme-toggle{
+    display:flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:8px; border:1px solid var(--border);
+    background:var(--panel); cursor:pointer; transition:all .2s; margin-left:16px;
+    flex-shrink:0;
+  }
+  .theme-toggle:hover{ border-color:var(--orange); }
+  .theme-toggle svg{ width:16px; height:16px; stroke:var(--text-dim); transition:stroke .2s; }
+  .theme-toggle:hover svg{ stroke:var(--orange); }
+  .theme-toggle .icon-sun{ display:none; }
+  html[data-theme="light"] .theme-toggle .icon-moon{ display:none; }
+  html[data-theme="light"] .theme-toggle .icon-sun{ display:block; }
   a{ color:inherit; text-decoration:none; }
   ::selection{ background:var(--orange); color:#0A0E17; }
  
@@ -80,6 +156,9 @@
   .navlinks a::before{ content:'/'; color:var(--text-faint); margin-right:6px; }
   .navlinks a:hover::before{ color:var(--orange); }
   .navtoggle{ display:none; }
+  header, .terminal, .badge-card, .exp-card, .project, .case-panel, .cert-card, .clink, .btn, .stat-tile, .pill, .tag{
+    transition:background .35s ease, border-color .35s ease, color .35s ease, box-shadow .35s ease;
+  }
  
   @media (max-width:760px){
     .navlinks{ display:none; }
@@ -315,6 +394,14 @@
 </style>
 </head>
 <body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="bg-glow-layer" id="bg-glow-layer">
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
+</div>
+<div class="bg-clouds" id="bg-clouds"></div>
  
 <header>
   <nav class="wrap">
@@ -327,6 +414,10 @@
       <a href="#certifications">certs</a>
       <a href="#contact">contact</a>
     </div>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark and light theme" title="Toggle dark / light theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
   </nav>
 </header>
  
@@ -681,6 +772,167 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
   }, { threshold:0.12 });
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+
+<script>
+  /* ---------- THEME TOGGLE (dark / light) ---------- */
+  (function(){
+    const root = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('portfolio-theme');
+    if (saved === 'light') root.setAttribute('data-theme', 'light');
+    btn.addEventListener('click', function(){
+      const isLight = root.getAttribute('data-theme') === 'light';
+      if (isLight){
+        root.removeAttribute('data-theme');
+        localStorage.setItem('portfolio-theme', 'dark');
+      } else {
+        root.setAttribute('data-theme', 'light');
+        localStorage.setItem('portfolio-theme', 'light');
+      }
+    });
+  })();
+</script>
+
+<script>
+  /* ---------- ANIMATED CLOUD / DEVOPS NETWORK BACKGROUND ---------- */
+  (function(){
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    const glowLayer = document.getElementById('bg-glow-layer');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let w, h, dpr, nodes = [];
+
+    function themeVar(name){
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function resize(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      initNodes();
+    }
+
+    function initNodes(){
+      const count = Math.min(90, Math.round((w * h) / 22000));
+      nodes = [];
+      for (let i = 0; i < count; i++){
+        const baseX = Math.random() * w;
+        const baseY = Math.random() * h;
+        nodes.push({
+          baseX, baseY,
+          x: baseX, y: baseY,
+          r: Math.random() * 1.6 + 1.1,
+          phase: Math.random() * Math.PI * 2,
+          speed: Math.random() * 0.5 + 0.35,
+          drift: Math.random() * 26 + 14
+        });
+      }
+    }
+
+    function draw(t){
+      ctx.clearRect(0, 0, w, h);
+      const nodeColor = themeVar('--node-color') || '231,236,244';
+      const linkColor = themeVar('--link-color') || '62,207,142';
+
+      nodes.forEach(n => {
+        n.x = n.baseX + Math.sin(t * 0.00018 * n.speed + n.phase) * n.drift;
+        n.y = n.baseY + Math.cos(t * 0.00013 * n.speed + n.phase) * n.drift * 0.6;
+      });
+
+      const maxDist = 130;
+      for (let i = 0; i < nodes.length; i++){
+        for (let j = i + 1; j < nodes.length; j++){
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < maxDist){
+            const alpha = (1 - dist / maxDist) * 0.16;
+            ctx.strokeStyle = `rgba(${linkColor},${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      nodes.forEach(n => {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${nodeColor},0.4)`;
+        ctx.fill();
+      });
+    }
+
+    function loop(t){
+      draw(t);
+      if (!reduceMotion) requestAnimationFrame(loop);
+    }
+
+    const cloudsLayer = document.getElementById('bg-clouds');
+
+    function onScroll(){
+      const y = window.scrollY;
+      const rotation = y * 0.006;
+      canvas.style.transform = `rotate(${rotation}deg) scale(1.06)`;
+      glowLayer.style.transform = `translateY(${y * 0.12}px) rotate(${y * 0.01}deg)`;
+      cloudsLayer.style.transform = `translateY(${y * 0.05}px)`;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    draw(0);
+    if (!reduceMotion){
+      requestAnimationFrame(loop);
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+  })();
+</script>
+
+<script>
+  /* ---------- FLOATING CLOUD SILHOUETTES ---------- */
+  (function(){
+    const layer = document.getElementById('bg-clouds');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const CLOUD_PATH = 'M25,55 C10,55 0,45 0,33 C0,22 8,14 18,13 C21,5 29,0 38,0 C48,0 57,6 60,15 C72,15 82,24 82,35 C82,46 73,55 62,55 Z';
+
+    const layout = [
+      { top: '6%',  left: '4%',  size: 260, opacity: 0.16, dur: 46, dir: 'a', delay: 0 },
+      { top: '16%', left: '68%', size: 200, opacity: 0.12, dur: 58, dir: 'b', delay: -6 },
+      { top: '38%', left: '-4%', size: 300, opacity: 0.10, dur: 64, dir: 'b', delay: -20 },
+      { top: '52%', left: '80%', size: 170, opacity: 0.14, dur: 40, dir: 'a', delay: -12 },
+      { top: '70%', left: '30%', size: 240, opacity: 0.09, dur: 70, dir: 'a', delay: -30 },
+      { top: '84%', left: '62%', size: 190, opacity: 0.13, dur: 52, dir: 'b', delay: -18 },
+      { top: '26%', left: '36%', size: 150, opacity: 0.10, dur: 60, dir: 'a', delay: -40 },
+      { top: '92%', left: '6%',  size: 210, opacity: 0.11, dur: 48, dir: 'b', delay: -8 }
+    ];
+
+    layout.forEach(function(c){
+      const el = document.createElement('div');
+      el.className = 'cloud-shape';
+      el.style.top = c.top;
+      el.style.left = c.left;
+      el.style.width = c.size + 'px';
+      el.style.height = (c.size * 0.67) + 'px';
+      el.style.opacity = c.opacity;
+      el.style.setProperty('--s', 1);
+      if (!reduceMotion){
+        el.style.animation = `cloud-drift-${c.dir} ${c.dur}s ease-in-out ${c.delay}s infinite`;
+      }
+      el.innerHTML = `<svg viewBox="0 0 82 55" fill="currentColor"><path d="${CLOUD_PATH}"/></svg>`;
+      layer.appendChild(el);
+    });
+  })();
 </script>
  
 </body>
