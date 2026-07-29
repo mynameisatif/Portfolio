@@ -424,17 +424,10 @@
   body.locked {
     overflow: hidden;
     height: 100vh;
-    height: 100dvh; /* Fixes mobile browser address bar jumps */
-    width: 100vw;
-    position: fixed; /* Strictly locks mobile scrolling/bouncing */
   }
   #welcome-screen {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh; /* Adapts to dynamic mobile viewports perfectly */
+    inset: 0;
     z-index: 99999;
     background: var(--bg);
     color: var(--text);
@@ -442,7 +435,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    text-align: center;
+    text-align: center; /* Forces all standard text to center */
     transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.8s;
   }
   #welcome-screen.hidden {
@@ -464,7 +457,7 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    text-align: center;
+    text-align: center; /* Centers the absolute positioned text */
     opacity: 0;
     transform: scale(0.9);
     transition: all 0.2s ease-out;
@@ -520,6 +513,151 @@
     0% { opacity: 0; transform: translateY(30px); filter: blur(12px); }
     100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
   }
+
+
+
+
+
+  /* =========================
+   GLOBAL RESPONSIVE FIX
+========================= */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+    max-width:100%;
+}
+
+img,
+svg,
+canvas,
+video,
+iframe{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+section,
+header,
+footer,
+main{
+    width:100%;
+    overflow-x:hidden;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:768px){
+
+    .wrap{
+        width:100%;
+        padding:0 16px;
+    }
+
+    .hero{
+        padding:70px 0;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .skills-grid,
+    .case-cols,
+    .exp-card,
+    .edu-item{
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .badge-card,
+    .project,
+    .case-panel,
+    .exp-card,
+    .cert-card,
+    .stat-tile{
+        width:100%;
+    }
+
+    .hero-cta{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .hero-cta .btn{
+        width:100%;
+        justify-content:center;
+    }
+
+    .contact-links{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .contact-links .clink{
+        width:100%;
+        text-align:center;
+        overflow-wrap:anywhere;
+        word-break:break-word;
+    }
+
+    h1.name{
+        font-size:36px;
+        line-height:1.15;
+    }
+
+    .role-line{
+        font-size:14px;
+        word-break:break-word;
+    }
+
+    .project-title,
+    .case-title,
+    .contact-title{
+        word-break:break-word;
+    }
+
+    .pipeline{
+        white-space:normal;
+        overflow-x:hidden;
+        word-break:break-word;
+        line-height:1.8;
+    }
+
+    .pipeline .flow-dot{
+        display:none;
+    }
+
+    .project-top{
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .badge-meta{
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .navlinks{
+        display:none;
+    }
+
+    .theme-toggle{
+        margin-left:0;
+    }
+}
 </style>
 </head>
 <body>
