@@ -424,10 +424,17 @@
   body.locked {
     overflow: hidden;
     height: 100vh;
+    height: 100dvh; /* Fixes mobile browser address bar jumps */
+    width: 100vw;
+    position: fixed; /* Strictly locks mobile scrolling/bouncing */
   }
   #welcome-screen {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; /* Adapts to dynamic mobile viewports perfectly */
     z-index: 99999;
     background: var(--bg);
     color: var(--text);
@@ -435,7 +442,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    text-align: center; /* Forces all standard text to center */
+    text-align: center;
     transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.8s;
   }
   #welcome-screen.hidden {
@@ -457,7 +464,7 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    text-align: center; /* Centers the absolute positioned text */
+    text-align: center;
     opacity: 0;
     transform: scale(0.9);
     transition: all 0.2s ease-out;
