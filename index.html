@@ -416,9 +416,122 @@
   }
   .clink:hover{ border-color:var(--orange); color:var(--orange); }
   .footer-bottom{ margin-top:56px; text-align:center; font-family:var(--font-mono); font-size:11px; color:var(--text-faint); }
+
+
+
+
+  /* ---------- WELCOME SCREEN ---------- */
+  body.locked {
+    overflow: hidden;
+    height: 100vh;
+  }
+  #welcome-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center; /* Forces all standard text to center */
+    transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.8s;
+  }
+  #welcome-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  #ws-greetings-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .ws-greeting {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center; /* Centers the absolute positioned text */
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.2s ease-out;
+  }
+  .ws-greeting.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  #ws-final-greeting {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 7vw, 64px);
+    font-weight: 700;
+    color: var(--orange);
+    text-align: center;
+    opacity: 0;
+    display: none;
+  }
+  #ws-final-greeting.active {
+    display: block;
+    animation: stretchBounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  @keyframes stretchBounce {
+    0% { transform: scale(0.8); opacity: 0; letter-spacing: -2px; filter: blur(10px); }
+    50% { transform: scale(1.05); opacity: 1; letter-spacing: 4px; filter: blur(0px); text-shadow: 0 0 15px rgba(255, 153, 0, 0.4); }
+    100% { transform: scale(1); opacity: 1; letter-spacing: 2px; text-shadow: 0 0 8px rgba(255, 153, 0, 0.2); }
+  }
+  #ws-intro {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    opacity: 0;
+  }
+  #ws-intro.active {
+    display: flex;
+    animation: blurFadeUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+  .ws-intro-name {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+  }
+  .ws-intro-role {
+    font-family: var(--font-mono);
+    font-size: clamp(14px, 3vw, 18px);
+    color: var(--green);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  @keyframes blurFadeUp {
+    0% { opacity: 0; transform: translateY(30px); filter: blur(12px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+  }
 </style>
 </head>
 <body>
+
+
+<!-- ---------- WELCOME SCREEN ---------- -->
+<div id="welcome-screen">
+  <div id="ws-greetings-container"></div>
+  <div id="ws-final-greeting">Helllllloooooooooo...</div>
+  <div id="ws-intro">
+    <div class="ws-intro-name">Hi, I'm Aatif Sayyed</div>
+    <div class="ws-intro-role">Cloud & Software Engineer</div>
+  </div>
+</div>
+
+
+
+
+
 
 <canvas id="bg-canvas"></canvas>
 <div class="bg-glow-layer" id="bg-glow-layer">
@@ -1042,7 +1155,74 @@
     window.addEventListener('resize', onScroll);
     update();
   })();
+
+  
+  /* ---------- WELCOME SCREEN LOGIC ---------- */
+  document.addEventListener("DOMContentLoaded", () => {
+    // Lock scrolling while the welcome screen is active
+    document.body.classList.add('locked');
+
+    const greetings = [
+      "Hello", "Namaste", "Salaam", "Kem Cho", "Vanakkam", 
+      "Namaskara", "Nomoshkar", "Sat Sri Akal", "Ram Ram", "Aadab", "Swagatam"
+    ];
+    
+    const container = document.getElementById("ws-greetings-container");
+    const finalGreeting = document.getElementById("ws-final-greeting");
+    const intro = document.getElementById("ws-intro");
+    const welcomeScreen = document.getElementById("welcome-screen");
+    
+    // Inject greetings into the DOM
+    greetings.forEach(text => {
+      const el = document.createElement("div");
+      el.className = "ws-greeting";
+      el.textContent = text;
+      container.appendChild(el);
+    });
+
+    const greetingElements = document.querySelectorAll(".ws-greeting");
+    let currentIndex = 0;
+    
+    // ~180ms per language greeting to keep it within the 3 second target
+    const rapidGreetingDuration = 180; 
+
+    function cycleGreetings() {
+      if (currentIndex > 0) {
+        greetingElements[currentIndex - 1].classList.remove("active");
+      }
+      if (currentIndex < greetingElements.length) {
+        greetingElements[currentIndex].classList.add("active");
+        currentIndex++;
+        setTimeout(cycleGreetings, rapidGreetingDuration);
+      } else {
+        container.style.display = 'none';
+        showFinalGreeting();
+      }
+    }
+
+    function showFinalGreeting() {
+      finalGreeting.classList.add("active");
+      // Hold the final dynamic greeting for ~1 second
+      setTimeout(() => {
+        finalGreeting.style.display = 'none';
+        showIntro();
+      }, 1000); 
+    }
+
+    function showIntro() {
+      intro.classList.add("active");
+      // Hold the personal intro for 2 seconds, then fade out
+      setTimeout(() => {
+        welcomeScreen.classList.add("hidden");
+        document.body.classList.remove('locked');
+      }, 2000); 
+    }
+
+    // Start the sequence shortly after load
+    setTimeout(cycleGreetings, 200);
+  });
 </script>
+
  
 </body>
 </html>
