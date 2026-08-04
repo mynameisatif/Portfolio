@@ -179,18 +179,40 @@
   .navlinks a{ position:relative; padding:4px 0; transition:color .2s; }
   .navlinks a:hover{ color:var(--orange); }
   .navlinks a::before{ content:'/'; color:var(--text-faint); margin-right:6px; }
-  html[data-theme="light"] .navlinks{ color:#FFFFFF; }
-  html[data-theme="light"] .navlinks a{ color:#FFFFFF; }
+  html[data-theme="light"] .navlinks{ color:var(--text-dim); }
+  html[data-theme="light"] .navlinks a{ color:var(--text-dim); }
   html[data-theme="light"] .navlinks a:hover{ color:var(--orange); }
   html[data-theme="light"] .navlinks a::before{ color:var(--text-faint); }
   .navlinks a:hover::before{ color:var(--orange); }
-  .navtoggle{ display:none; }
+  .nav-right{ display:flex; align-items:center; gap:8px; margin-left:auto; }
+  .navtoggle{
+    display:none; align-items:center; justify-content:center;
+    width:38px; height:38px; border-radius:8px; border:1px solid var(--border);
+    background:var(--panel); cursor:pointer; color:var(--text);
+  }
+  .navtoggle span{ display:block; width:18px; height:2px; background:currentColor; position:relative; }
+  .navtoggle span::before, .navtoggle span::after{ content:''; position:absolute; left:0; width:18px; height:2px; background:currentColor; transition:transform .2s ease, top .2s ease; }
+  .navtoggle span::before{ top:-6px; }
+  .navtoggle span::after{ top:6px; }
+  .navtoggle.open span{ background:transparent; }
+  .navtoggle.open span::before{ top:0; transform:rotate(45deg); }
+  .navtoggle.open span::after{ top:0; transform:rotate(-45deg); }
   header, .terminal, .badge-card, .exp-card, .project, .case-panel, .cert-card, .clink, .btn, .stat-tile, .pill, .tag{
     transition:background .35s ease, border-color .35s ease, color .35s ease, box-shadow .35s ease;
   }
  
   @media (max-width:760px){
     .navlinks{ display:none; }
+    .nav-right{ margin-left:auto; }
+    .navtoggle{ display:inline-flex; }
+    .navlinks{
+      position:fixed; top:64px; right:16px; width:min(240px, calc(100% - 32px));
+      display:none; flex-direction:column; gap:12px; padding:14px;
+      background:var(--panel); border:1px solid var(--border); border-radius:12px;
+      box-shadow:0 24px 48px rgba(0,0,0,0.22); z-index:100000;
+    }
+    .navlinks.open{ display:flex; }
+    .navlinks a::before{ display:none; }
   }
  
   /* ---------- HERO ---------- */
@@ -716,8 +738,8 @@ main{
  
 <header>
   <nav class="wrap">
-    <div class="brand"><span class="dot"></span>aatif@cloud:~$</div>
-    <div class="navlinks">
+    <div class="brand"><span class="dot"></span>aatif@cloud:  &nbsp; &nbsp; </div>
+    <div class="navlinks" id="siteNav">
       <a href="#about">about</a>
       <a href="#skills">skills</a>
       <a href="#experience">experience</a>
@@ -725,10 +747,15 @@ main{
       <a href="#certifications">certs</a>
       <a href="#contact">contact</a>
     </div>
-    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark and light theme" title="Toggle dark / light theme">
+    <div class="nav-right">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark and light theme" title="Toggle dark / light theme">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
     </button>
+      <button class="navtoggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
+        <span></span>
+      </button>
+    </div>
   </nav>
 </header>
  
@@ -1189,6 +1216,35 @@ main{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
   }, { threshold:0.12 });
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+
+<script>
+  /* ---------- MOBILE NAV TOGGLE ---------- */
+  (function(){
+    const toggle = document.getElementById('navToggle');
+    const nav = document.getElementById('siteNav');
+    if (toggle && nav){
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 760){
+          nav.classList.remove('open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  })();
 </script>
 
 <script>
