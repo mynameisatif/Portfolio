@@ -160,10 +160,10 @@
  
   /* ---------- NAV ---------- */
   header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(0, 0, 0, 0.85);
+    position:fixed; top:0; left:0; right:0; width:100%; z-index:9999;
+    background:rgba(0, 0, 0, 0.3);
     backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
+    border-bottom:1px solid rgba(255,255,255,0.08);
   }
   nav.wrap{
     display:flex; align-items:center; justify-content:space-between;
@@ -179,6 +179,10 @@
   .navlinks a{ position:relative; padding:4px 0; transition:color .2s; }
   .navlinks a:hover{ color:var(--orange); }
   .navlinks a::before{ content:'/'; color:var(--text-faint); margin-right:6px; }
+  html[data-theme="light"] .navlinks{ color:#FFFFFF; }
+  html[data-theme="light"] .navlinks a{ color:#FFFFFF; }
+  html[data-theme="light"] .navlinks a:hover{ color:var(--orange); }
+  html[data-theme="light"] .navlinks a::before{ color:var(--text-faint); }
   .navlinks a:hover::before{ color:var(--orange); }
   .navtoggle{ display:none; }
   header, .terminal, .badge-card, .exp-card, .project, .case-panel, .cert-card, .clink, .btn, .stat-tile, .pill, .tag{
@@ -547,11 +551,14 @@ iframe{
 }
 
 section,
-header,
 footer,
 main{
     width:100%;
     overflow-x:hidden;
+}
+
+main{
+    padding-top:64px;
 }
 
 /* =========================
@@ -839,7 +846,7 @@ main{
           <div class="exp-role">AWS Cloud Intern</div>
           <div class="exp-org">F13 Technologies</div>
           
-            <img src="F13.png" alt="Portrait of Mohd Aatif Sayyed">
+            <img src="F13.jpg" alt="Portrait of Mohd Aatif Sayyed"><br>
           
           
           <ul>
@@ -861,49 +868,49 @@ main{
       </div>
 
       <div class="project reveal">
-  <div class="project-top">
-    <div class="project-title">MailFlow Pro</div>
-    <div class="project-date">August 2026</div>
-  </div>
-
-  <div class="pipeline">
-    <span class="flow-dot"></span>
-    <span class="stage">React</span><span class="arrow">→</span>
-    <span class="stage">Node.js</span><span class="arrow">→</span>
-    <span class="stage">Google OAuth</span><span class="arrow">→</span>
-    <span class="stage">Gmail API</span><span class="arrow">→</span>
-    <span class="stage">GitHub Pages</span><span class="arrow">→</span>
-    <span class="stage">Render</span>
-  </div>
-
-  <ul class="project-desc">
-    <li>Developed MailFlow Pro, a full-stack web application that enables users to send bulk emails securely using their own Gmail account through Google OAuth authentication.</li>
-
-    <li>Implemented individual email delivery, ensuring each recipient receives a separate email without exposing other recipients, making it ideal for job applications and professional outreach.</li>
-
-    <li>Designed a responsive and user-friendly interface with secure authentication, real-time email management, and cloud deployment for seamless access across devices.</li>
-  </ul>
-
-  <div class="tag-row">
-    <span class="tag">React</span>
-    <span class="tag">Node.js</span>
-    <span class="tag">Express.js</span>
-    <span class="tag">Google OAuth</span>
-    <span class="tag">GitHub Pages</span>
-    <span class="tag">REST API</span>
-  </div>
-
-  <br>
-
-  <a class="btn btn-primary" href="https://github.com/mynameisatif/mailflow-pro" target="_blank">
-    View code →
-  </a>
-  &ensp;&ensp;
-  <a class="btn btn-primary" href="https://mynameisatif.github.io/mailflow-pro/" target="_blank">
-    Live demo ↗
-  </a>
-</div>
- 
+        <div class="project-top">
+          <div class="project-title">MailFlow Pro</div>
+          <div class="project-date">August 2026</div>
+        </div>
+        
+        <div class="pipeline">
+          <span class="flow-dot"></span>
+          <span class="stage">Web Development</span><span class="arrow">→</span>
+          <span class="stage">Backend Development</span><span class="arrow">→</span>
+          <span class="stage">Google OAuth</span><span class="arrow">→</span>
+          <span class="stage">Gmail API</span><span class="arrow">→</span>
+          <span class="stage">GitHub Pages</span><span class="arrow">→</span>
+          <span class="stage">Render</span>
+        </div>
+        
+        <ul class="project-desc">
+          <li>Developed MailFlow Pro, a full-stack web application that enables users to send bulk emails securely using their own Gmail account through Google OAuth authentication.</li>
+          
+          <li>Implemented individual email delivery, ensuring each recipient receives a separate email without exposing other recipients, making it ideal for job applications and professional outreach.</li>
+          
+          <li>Designed a responsive and user-friendly interface with secure authentication, real-time email management, and cloud deployment for seamless access across devices.</li>
+        </ul>
+        
+        <div class="tag-row">
+          <span class="tag">React</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">API's</span>
+          <span class="tag">Google OAuth</span>
+          <span class="tag">GitHub Pages</span>
+          <span class="tag">REST API</span>
+        </div>
+        
+        <br>
+        
+        <a class="btn btn-primary" href="https://github.com/mynameisatif/mailflow-pro" target="_blank">
+          View code →
+        </a>
+        &ensp;&ensp;
+        <a class="btn btn-primary" href="https://mynameisatif.github.io/mailflow-pro/" target="_blank">
+          Live demo ↗
+        </a>
+      </div>  
+      
       <div class="project reveal">
         <div class="project-top">
           <div class="project-title">WebChat — Real-Time Employee Chat &amp; Announcements</div>
