@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" fill="none">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="960" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#201B24"/><stop offset="1" stop-color="#101214"/></linearGradient><linearGradient id="accent" x1="180" y1="260" x2="780" y2="390" gradientUnits="userSpaceOnUse"><stop stop-color="#FFBD52"/><stop offset="1" stop-color="#FF8A00"/></linearGradient></defs>
+  <rect width="960" height="600" rx="34" fill="url(#bg)"/><path d="M66 86h828" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <circle cx="92" cy="58" r="7" fill="#FF9900"/><circle cx="116" cy="58" r="7" fill="#FFC15A" fill-opacity=".7"/><circle cx="140" cy="58" r="7" fill="#FFFFFF" fill-opacity=".22"/>
+  <text x="76" y="139" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="24" font-weight="700">RESUME PARSER</text>
+  <text x="76" y="171" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="16">Document intelligence for recruiter workflows</text>
+  <rect x="82" y="234" width="154" height="214" rx="18" fill="#191D1C" stroke="#FFFFFF" stroke-opacity=".14"/>
+  <path d="M126 271h55l24 24v111h-79z" fill="#222827" stroke="#FF9900" stroke-width="3" stroke-linejoin="round"/><path d="M181 271v26h24m-59 24h41m-41 16h41m-41 16h32" stroke="#E8E8E2" stroke-opacity=".65" stroke-width="4" stroke-linecap="round"/>
+  <text x="159" y="425" text-anchor="middle" fill="#C5C9C4" font-family="Arial,sans-serif" font-size="14">Resume PDF</text>
+  <path d="M250 338h52m-13-11 13 11-13 11" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="316" y="234" width="170" height="214" rx="18" fill="#191D1C" stroke="#FF9900" stroke-opacity=".65"/>
+  <circle cx="401" cy="307" r="34" fill="#FF9900" fill-opacity=".14" stroke="#FF9900" stroke-opacity=".55"/>
+  <path d="M386 307h30m-15-15v30" stroke="#FFC15A" stroke-width="4" stroke-linecap="round"/>
+  <text x="401" y="377" text-anchor="middle" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="15" font-weight="700">Textract + NLP</text>
+  <text x="401" y="403" text-anchor="middle" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="13">Extract &amp; enrich</text>
+  <path d="M500 338h48m-13-11 13 11-13 11" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="562" y="234" width="156" height="214" rx="18" fill="#191D1C" stroke="#FFFFFF" stroke-opacity=".14"/>
+  <path d="M600 287h80v92h-80z" stroke="#FFC15A" stroke-width="3"/><path d="m616 351 15-20 13 12 20-30" stroke="#FF9900" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="640" y="411" text-anchor="middle" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="15" font-weight="700">Skill match</text>
+  <path d="M733 338h44m-13-11 13 11-13 11" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="792" y="256" width="100" height="160" rx="18" fill="#191D1C" stroke="#FF9900" stroke-opacity=".6"/>
+  <circle cx="842" cy="303" r="18" fill="#FF9900" fill-opacity=".18"/><path d="M836 303h12m-6-6v12" stroke="#FFC15A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M816 345h52m-52 15h40m-40 15h46" stroke="#C5C9C4" stroke-opacity=".55" stroke-width="4" stroke-linecap="round"/>
+  <text x="842" y="444" text-anchor="middle" fill="#C5C9C4" font-family="Arial,sans-serif" font-size="13">Recruiter</text>
+</svg>

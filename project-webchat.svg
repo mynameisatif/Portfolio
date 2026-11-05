@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" fill="none">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="960" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#171D25"/><stop offset="1" stop-color="#101214"/></linearGradient><linearGradient id="accent" x1="170" y1="200" x2="760" y2="430" gradientUnits="userSpaceOnUse"><stop stop-color="#FFC15A"/><stop offset="1" stop-color="#FF8A00"/></linearGradient></defs>
+  <rect width="960" height="600" rx="34" fill="url(#bg)"/><path d="M66 86h828" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <circle cx="92" cy="58" r="7" fill="#FF9900"/><circle cx="116" cy="58" r="7" fill="#FFC15A" fill-opacity=".7"/><circle cx="140" cy="58" r="7" fill="#FFFFFF" fill-opacity=".22"/>
+  <text x="76" y="139" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="24" font-weight="700">WEBCHAT · SERVERLESS</text>
+  <text x="76" y="171" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="16">Real-time team chat &amp; announcements</text>
+  <rect x="78" y="226" width="172" height="204" rx="20" fill="#191D1C" stroke="#FFFFFF" stroke-opacity=".12"/>
+  <circle cx="164" cy="284" r="34" fill="#FF9900" fill-opacity=".13"/><circle cx="164" cy="272" r="12" stroke="#FFC15A" stroke-width="4"/><path d="M141 310c4-17 42-17 46 0" stroke="#FFC15A" stroke-width="4" stroke-linecap="round"/>
+  <text x="164" y="365" text-anchor="middle" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="16" font-weight="700">Employees</text>
+  <text x="164" y="392" text-anchor="middle" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="14">Cognito sign-in</text>
+  <path d="M270 328h86m-13-11 13 11-13 11" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="370" y="226" width="196" height="204" rx="20" fill="#191D1C" stroke="#FF9900" stroke-opacity=".62"/>
+  <path d="M411 279h114M411 303h82" stroke="#FFC15A" stroke-width="9" stroke-linecap="round"/><path d="M414 257h108" stroke="#FFFFFF" stroke-opacity=".14" stroke-width="3"/>
+  <text x="468" y="365" text-anchor="middle" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="16" font-weight="700">API Gateway</text>
+  <text x="468" y="392" text-anchor="middle" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="14">WebSocket routes</text>
+  <path d="M586 328h64m-13-11 13 11-13 11" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="666" y="226" width="210" height="92" rx="18" fill="#191D1C" stroke="#FFFFFF" stroke-opacity=".12"/>
+  <rect x="666" y="338" width="210" height="92" rx="18" fill="#191D1C" stroke="#FFFFFF" stroke-opacity=".12"/>
+  <path d="M700 262h34v28h-34zM708 255v7m18-7v7" stroke="#FFC15A" stroke-width="3" stroke-linejoin="round"/>
+  <text x="758" y="273" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="15" font-weight="700">Lambda</text>
+  <text x="758" y="295" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="13">Message logic</text>
+  <path d="M697 366h40v36h-40zM702 375h30m-30 8h30m-30 8h21" stroke="#FFC15A" stroke-width="3" stroke-linejoin="round"/>
+  <text x="758" y="378" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="15" font-weight="700">DynamoDB</text>
+  <text x="758" y="402" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="13">Chat history</text>
+  <path d="M765 318v17" stroke="#FF9900" stroke-width="3" stroke-dasharray="4 6"/>
+</svg>

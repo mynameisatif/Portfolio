@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#202019"/><stop offset="1" stop-color="#101212"/></linearGradient>
+    <linearGradient id="accent" x1="180" y1="100" x2="760" y2="500" gradientUnits="userSpaceOnUse"><stop stop-color="#FFC15A"/><stop offset="1" stop-color="#FF8A00"/></linearGradient>
+  </defs>
+  <rect width="960" height="600" rx="34" fill="url(#bg)"/>
+  <path d="M66 86h828" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <circle cx="92" cy="58" r="7" fill="#FF9900"/><circle cx="116" cy="58" r="7" fill="#FFC15A" fill-opacity=".7"/><circle cx="140" cy="58" r="7" fill="#FFFFFF" fill-opacity=".22"/>
+  <text x="76" y="139" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="24" font-weight="700">MAILFLOW PRO</text>
+  <text x="76" y="171" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="16">Secure, one-to-one email delivery</text>
+  <rect x="76" y="224" width="196" height="210" rx="24" fill="#191D1C" stroke="#FF9900" stroke-opacity=".65"/>
+  <circle cx="174" cy="293" r="38" fill="#FF9900" fill-opacity=".14" stroke="#FF9900" stroke-opacity=".65"/>
+  <path d="M158 293h32m-16-16v32" stroke="#FFC15A" stroke-width="5" stroke-linecap="round"/>
+  <text x="174" y="366" text-anchor="middle" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="17" font-weight="700">Google OAuth</text>
+  <text x="174" y="393" text-anchor="middle" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="14">Your account</text>
+  <path d="M293 329h112" stroke="url(#accent)" stroke-width="4"/><path d="m394 318 16 11-16 11" stroke="#FF9900" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="426" y="224" width="196" height="210" rx="24" fill="#191D1C" stroke="#FFFFFF" stroke-opacity=".14"/>
+  <rect x="478" y="274" width="92" height="70" rx="10" stroke="#FFB23E" stroke-width="4"/>
+  <path d="m480 280 44 34 44-34" stroke="#FFB23E" stroke-width="4" stroke-linejoin="round"/>
+  <text x="524" y="382" text-anchor="middle" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="17" font-weight="700">Gmail API</text>
+  <text x="524" y="408" text-anchor="middle" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="14">Send individually</text>
+  <path d="M643 329h93" stroke="url(#accent)" stroke-width="4"/><path d="m725 318 16 11-16 11" stroke="#FF9900" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="792" cy="272" r="30" fill="#FF9900" fill-opacity=".18" stroke="#FF9900" stroke-opacity=".72"/>
+  <circle cx="842" cy="354" r="30" fill="#FF9900" fill-opacity=".12" stroke="#FF9900" stroke-opacity=".5"/>
+  <circle cx="785" cy="421" r="24" fill="#FF9900" fill-opacity=".1" stroke="#FF9900" stroke-opacity=".4"/>
+  <path d="m778 272 10 10 19-21m25 93 9 9 17-19m-62 76 8 8 15-17" stroke="#FFC15A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="814" y="490" text-anchor="middle" fill="#C5C9C4" font-family="Arial,sans-serif" font-size="15">Recipients</text>
+</svg>

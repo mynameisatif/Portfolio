@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" fill="none">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="960" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#211B23"/><stop offset="1" stop-color="#101214"/></linearGradient><linearGradient id="accent" x1="240" y1="230" x2="720" y2="440" gradientUnits="userSpaceOnUse"><stop stop-color="#FFC15A"/><stop offset="1" stop-color="#FF8A00"/></linearGradient></defs>
+  <rect width="960" height="600" rx="34" fill="url(#bg)"/><path d="M66 86h828" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <circle cx="92" cy="58" r="7" fill="#FF9900"/><circle cx="116" cy="58" r="7" fill="#FFC15A" fill-opacity=".7"/><circle cx="140" cy="58" r="7" fill="#FFFFFF" fill-opacity=".22"/>
+  <text x="76" y="139" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="24" font-weight="700">FEEL IT!</text>
+  <text x="76" y="171" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="16">A tactile, screen-free Android game</text>
+  <rect x="138" y="213" width="228" height="320" rx="38" fill="#141718" stroke="#FFFFFF" stroke-opacity=".22" stroke-width="3"/>
+  <rect x="154" y="236" width="196" height="268" rx="24" fill="#1C2020"/>
+  <circle cx="252" cy="344" r="70" fill="#FF9900" fill-opacity=".12"/>
+  <path d="M252 290v25m0 58v25m-54-54h25m58 0h25m-92-38 18 18m40 40 18 18m0-76-18 18m-40 40-18 18" stroke="#FFC15A" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="252" cy="344" r="22" fill="#FF9900"/><circle cx="252" cy="344" r="8" fill="#FFE0A6"/>
+  <text x="252" y="464" text-anchor="middle" fill="#C5C9C4" font-family="Arial,sans-serif" font-size="14">Feel the pattern</text>
+  <path d="M417 330c17-17 34 17 51 0s34 17 51 0 34 17 51 0 34 17 51 0 34 17 51 0" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M417 368c17-17 34 17 51 0s34 17 51 0 34 17 51 0 34 17 51 0 34 17 51 0" stroke="#FF9900" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="417" cy="330" r="7" fill="#FFC15A"/><circle cx="519" cy="330" r="7" fill="#FFC15A"/><circle cx="621" cy="330" r="7" fill="#FFC15A"/><circle cx="723" cy="330" r="7" fill="#FFC15A"/>
+  <rect x="610" y="225" width="244" height="70" rx="18" fill="#191D1C" stroke="#FFFFFF" stroke-opacity=".1"/>
+  <text x="732" y="254" text-anchor="middle" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="15" font-weight="700">Listen · Remember</text>
+  <text x="732" y="278" text-anchor="middle" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="14">Repeat with touch</text>
+  <path d="M712 440c0-25 40-25 40 0v45h-40zm-10 13h60" stroke="#FFC15A" stroke-width="4" stroke-linejoin="round"/>
+  <text x="732" y="519" text-anchor="middle" fill="#C5C9C4" font-family="Arial,sans-serif" font-size="14">Haptic feedback</text>
+</svg>

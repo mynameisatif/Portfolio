@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" fill="none">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="960" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#1F1D19"/><stop offset="1" stop-color="#101214"/></linearGradient><linearGradient id="accent" x1="260" y1="300" x2="700" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#FFC15A"/><stop offset="1" stop-color="#FF8A00"/></linearGradient></defs>
+  <rect width="960" height="600" rx="34" fill="url(#bg)"/><path d="M66 86h828" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <circle cx="92" cy="58" r="7" fill="#FF9900"/><circle cx="116" cy="58" r="7" fill="#FFC15A" fill-opacity=".7"/><circle cx="140" cy="58" r="7" fill="#FFFFFF" fill-opacity=".22"/>
+  <text x="76" y="139" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="24" font-weight="700">HYBRID CLOUD ARCHITECTURE</text>
+  <text x="76" y="171" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="16">Latency-sensitive trading with elastic customer services</text>
+  <rect x="78" y="224" width="320" height="272" rx="22" fill="#191D1C" stroke="#FFFFFF" stroke-opacity=".15"/>
+  <text x="110" y="266" fill="#FFC15A" font-family="Arial,sans-serif" font-size="15" font-weight="700">ON-PREMISE · CONTROL</text>
+  <rect x="116" y="300" width="244" height="76" rx="16" fill="#222827" stroke="#FF9900" stroke-opacity=".5"/>
+  <path d="M146 323h36v30h-36zm8-8v8m20-8v8m-20 30v8m20-8v8" stroke="#FFC15A" stroke-width="3" stroke-linejoin="round"/>
+  <text x="202" y="333" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="15" font-weight="700">Order management</text>
+  <text x="202" y="356" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="13">Low-latency core</text>
+  <rect x="116" y="398" width="244" height="64" rx="14" fill="#171B1A"/>
+  <path d="M142 422h25m-25 11h25m-25 11h25m14-22h25m-25 11h25m-25 11h25" stroke="#C5C9C4" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/>
+  <text x="242" y="438" fill="#B5BCB7" font-family="Arial,sans-serif" font-size="13">Exchange links</text>
+  <path d="M418 354h116m-16-12 16 12-16 12" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="554" y="224" width="328" height="272" rx="22" fill="#191D1C" stroke="#FF9900" stroke-opacity=".55"/>
+  <text x="586" y="266" fill="#FFC15A" font-family="Arial,sans-serif" font-size="15" font-weight="700">AWS CLOUD · SCALE</text>
+  <rect x="588" y="300" width="118" height="70" rx="14" fill="#222827"/><rect x="730" y="300" width="118" height="70" rx="14" fill="#222827"/>
+  <path d="M610 323h25v24h-25zm5-7h15m-15 38h15" stroke="#FFC15A" stroke-width="3"/>
+  <text x="666" y="342" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="13">EC2 + ALB</text>
+  <path d="M752 321h23m-23 10h23m-23 10h23m-23 10h23" stroke="#FFC15A" stroke-width="3" stroke-linecap="round"/>
+  <text x="804" y="342" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="13">S3</text>
+  <path d="M706 335h21m-7-7 7 7-7 7" stroke="#FF9900" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="588" y="392" width="260" height="70" rx="14" fill="#222827"/>
+  <circle cx="622" cy="427" r="16" stroke="#FFC15A" stroke-width="3"/><path d="M622 414v13l9 6m14-6h23" stroke="#FFC15A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="676" y="423" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="14" font-weight="700">Auto Scaling · Batch</text>
+  <text x="676" y="445" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="12">Elastic customer workloads</text>
+</svg>

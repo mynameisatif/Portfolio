@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
   <title>Aatif Sayyed | Portfolio</title>
 
     <!-- Portfolio Tab Icon -->
 <!-- Portfolio Favicon -->
-<link rel="icon" type="image/png" href="./Portfoiliologo.png"><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="./Portfoiliologo.png"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta name="description" content="Mohd Aatif Sayyed — Cloud & Software Developer. AWS, Java, Linux, Docker, Git, CI/CD and DevOps projects, experience and certifications.">
+<meta name="theme-color" content="#0C0C0C">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="redesign.css">
 </head>
 <body>
 
-
-<!-- ---------- WELCOME SCREEN ---------- -->
-<div id="welcome-screen">
-  <div id="ws-greetings-container"></div>
-  <div id="ws-final-greeting">Helllllloooooooooo...</div>
-  <div id="ws-intro">
-    <div class="ws-intro-name">I'm Aatif Sayyed</div>
-    <div class="ws-intro-role">Cloud & Software Engineer</div>
-  </div>
+<div class="welcome-screen" id="welcome-screen" aria-hidden="true">
+  <div class="welcome-mark"><span></span>aatif@cloud</div>
+  <p class="welcome-kicker">Welcome to my portfolio</p>
+  <p class="welcome-word" id="welcomeWord" lang="en">Welcome</p>
+  <div class="welcome-progress"><span></span></div>
 </div>
-
 
 <canvas id="bg-canvas"></canvas>
 <div class="bg-glow-layer" id="bg-glow-layer">
@@ -57,56 +56,52 @@
  
 <header>
   <nav class="wrap">
-    <div class="brand"><span class="dot"></span>aatif@cloud:  &nbsp; &nbsp; </div>
-    <div class="navlinks" id="siteNav">
-      <a href="#about">about</a>
-      <a href="#experience">experience</a>
-      <a href="#skills">skills</a>
-      <a href="#projects">projects</a>
-      <a href="#certifications">certs</a>
-      <a href="#contact">contact</a>
+    <div class="nav-brand">
+      <a class="brand" href="#top" aria-label="Aatif Sayyed portfolio home"><span class="dot"></span>aatif@cloud</a>
+      <button class="navtoggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="siteNav">
+        <span></span>
+      </button>
     </div>
     <div class="nav-right">
       <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark and light theme" title="Toggle dark / light theme">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
     </button>
-      <button class="navtoggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
-        <span></span>
-      </button>
+    </div>
+    <div class="navlinks" id="siteNav" aria-hidden="true" inert>
+      <a href="#about">about</a>
+      <a href="#experience">experience</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#certifications">certs</a>
+      <a href="#education">education</a>
+      <a href="#contact">contact</a>
     </div>
   </nav>
 </header>
  
 <main>
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow"><span class="bar"></span>available for internships &amp; junior cloud roles</div>
-        <h1 class="name">Mohd Aatif <span class="accent">Sayyed</span></h1>
-        <div class="role-line">Software Engineer / Cloud Engineer | DevOps in progress — MCA 2024–2026 · Mumbai, IN</div>
- 
-        
- 
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#projects">View projects →</a>
-          <a class="btn btn-primary" href="#contact">Get in touch</a>
-          <a class="btn btn-primary" href="Atif Sayyed Resume.pdf">Resume</a>
-        </div>
+  <section class="hero2" id="top">
+    <div class="float-layer" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="eyebrow" data-in style="--d:.1s"><span class="bar"></span>available for internships &amp; junior cloud roles</div>
+      <h1 class="hero-heading" data-in style="--d:.2s">Hi, I&apos;m Aatif.</h1>
+      <div class="hero-cta" data-in style="--d:.35s">
+        <a class="btn btn-primary main" href="#contact">Contact me</a>
+        <a class="btn btn-primary" href="Atif Sayyed Resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a>
       </div>
- 
-      <div>
-        <div class="badge-card">
-          <div class="badge-tag">AWS ACCREDITED</div>
-          <div class="badge-photo">
-            <img src="me.png" alt="Portrait of Mohd Aatif Sayyed">
-          </div>
-          <div class="badge-name">Mohd Aatif Sayyed</div>
-          <div class="badge-role">S/W Engineer · MCA 2024–2026</div>
-          <div class="badge-meta">
-            <span>MUM, IN</span>
-          </div>
-        </div>
+    </div>
+    <figure class="portrait" data-in style="--d:.6s">
+      <div class="portrait-card">
+        <img src="me.png" alt="Portrait of Mohd Aatif Sayyed" width="1334" height="1179" fetchpriority="high">
+        <span class="badge-tag">AWS ACCREDITED</span>
+        <figcaption>Mohd Aatif Sayyed<small>S/W Engineer · MCA 2024–2026 · MUM, IN</small></figcaption>
+      </div>
+    </figure>
+    <div class="hero-bar">
+      <div data-in style="--d:.35s">
+        <h2 class="hero-sub">Cloud &amp; Software Developer</h2>
+        <div class="role-line">Software Engineer / Cloud Engineer | DevOps in progress — MCA 2024–2026 · Mumbai, IN</div>
       </div>
     </div>
   </section>
@@ -142,7 +137,7 @@
       </div>
       <div class="exp-card reveal">
         <div>
-          <img src="F13.jpg" alt="Portrait of Mohd Aatif Sayyed">  
+          <img src="F13.jpg" alt="F13 Technologies">  
         </div>
         <div>
           <div class="exp-role">AWS Cloud Intern</div>
@@ -201,35 +196,38 @@
       </div>
       <div class="skills-grid reveal">
         <div>
-          <div class="skill-col-title">languages</div>
+          <div class="skill-col-title">Languages</div>
           <div class="skill-item">Python</div>
           <div class="skill-item">Java</div>
-          <div class="skill-item">SQL (MySQL) </div>
+          <div class="skill-item">SQL (MySQL)</div>
           <div class="skill-item">YAML</div>
         </div>
         <div>
-          <div class="skill-col-title">cloud &amp; devops</div>
-          <div class="skill-item">AWS — Compute, Storage, Networking &amp; Security</div>
-          <div class="skill-item">Linux &amp; Bash Scripting</div>
+          <div class="skill-col-title">Tools</div>
+          <div class="skill-item">Git</div>
+          <div class="skill-item">GitHub</div>
+          <div class="skill-item">VS Code</div>
+          <div class="skill-item">Android Studio</div>
+          <div class="skill-item">Terraform</div>
+          <div class="skill-item">Figma</div>
+        </div>
+        <div>
+          <div class="skill-col-title">Cloud &amp; DevOps</div>
+          <div class="skill-item">AWS (Compute, Storage, Networking &amp; Security)</div>
+          <div class="skill-item">Google Cloud Platform (GCP)</div>
+          <div class="skill-item">Linux</div>
+          <div class="skill-item">Bash Scripting</div>
           <div class="skill-item">Docker</div>
           <div class="skill-item">Kubernetes (kubectl)</div>
           <div class="skill-item">CI/CD pipelines</div>
         </div>
         <div>
-          <div class="skill-col-title">tools</div>
-          <div class="skill-item">Git &amp; GitHub</div>
-          <div class="skill-item">VS Code</div>
-          <div class="skill-item">Terraform</div>
-          <div class="skill-item">Android Studio</div>
-          <div class="skill-item">Figma</div>
-        </div>
-        <div>
-          <div class="skill-col-title">working style</div>
+          <div class="skill-col-title">Soft Skills</div>
           <div class="skill-item">Communication</div>
-          <div class="skill-item">Critical thinking</div>
-          <div class="skill-item">Problem-solving</div>
+          <div class="skill-item">Critical Thinking</div>
+          <div class="skill-item">Problem-Solving</div>
           <div class="skill-item">Adaptability</div>
-          <div class="skill-item">Decision-making</div>
+          <div class="skill-item">Decision-Making</div>
         </div>
       </div>
     </div>
@@ -243,6 +241,10 @@
       </div>
 
       <div class="project reveal">
+        <figure class="project-media">
+          <img src="project-mailflow.svg" alt="MailFlow Pro email delivery flow from Google OAuth through the Gmail API to individual recipients" width="960" height="600" decoding="async">
+        </figure>
+        <div class="project-content">
         <div class="project-top">
           <div class="project-title">MailFlow Pro</div>
           <div class="project-date">August 2026</div>
@@ -277,16 +279,21 @@
         
         <br>
         
-        <a class="btn btn-primary" href="https://github.com/mynameisatif/mailflow-pro" target="_blank">
+        <a class="btn btn-primary" href="https://github.com/mynameisatif/mailflow-pro" target="_blank" rel="noopener">
           View code →
         </a>
         &ensp;&ensp;
-        <a class="btn btn-primary" href="https://mynameisatif.github.io/mailflow-pro/" target="_blank">
+        <a class="btn btn-primary" href="https://mynameisatif.github.io/mailflow-pro/" target="_blank" rel="noopener">
           Live demo ↗
         </a>
+        </div>
       </div>  
       
       <div class="project reveal">
+        <figure class="project-media">
+          <img src="project-webchat.svg" alt="Serverless employee chat architecture connecting users, API Gateway, Lambda, and DynamoDB" width="960" height="600" decoding="async">
+        </figure>
+        <div class="project-content">
         <div class="project-top">
           <div class="project-title">WebChat — Real-Time Employee Chat &amp; Announcements</div>
           <div class="project-date">March 2026</div>
@@ -309,9 +316,14 @@
           <a class="btn btn-primary" href="https://github.com/alfi362/EmployeeChat">View code →</a>&ensp;&ensp;
           <a class="btn btn-primary" href="https://ap-south-1lb9cexihr.auth.ap-south-1.amazoncognito.com/login?client_id=29g4gnh2142vbf25b63qqon9mo&response_type=token&scope=email+openid+profile+aws.cognito.signin.user.admin&redirect_uri=https%3A%2F%2Fd2ez74nu99mzlf.cloudfront.net%2F">Live demo ↗</a>
 
+        </div>
       </div>
  
       <div class="project reveal">
+        <figure class="project-media">
+          <img src="project-resume-parser.svg" alt="Resume parsing workflow extracting document text and matching candidate skills" width="960" height="600" decoding="async">
+        </figure>
+        <div class="project-content">
         <div class="project-top">
           <div class="project-title">Resume Parser &amp; Skill Matcher for Recruiters</div>
           <div class="project-date">Feb 2026</div>
@@ -332,9 +344,14 @@
 
         <a class="btn btn-primary" href="https://www.linkedin.com/posts/mohd-aatif-sayyed_aws-cloudcomputing-serverless-activity-7435131983619346432-NEPj?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD0toe4BDwx_S5KSyKUD9K3sPkabrV-tFPo">View details ↗</a>
 
+        </div>
       </div>
  
       <div class="project reveal">
+        <figure class="project-media">
+          <img src="project-skill-share.svg" alt="Skill Share Marketplace connecting learners with peer instructors and learning sessions" width="960" height="600" decoding="async">
+        </figure>
+        <div class="project-content">
         <div class="project-top">
           <div class="project-title">Skill Share Marketplace</div>
           <div class="project-date">Aug 2025</div>
@@ -351,10 +368,15 @@
         <div class="tag-row">
           <span class="tag">AWS S3</span><span class="tag">Static Hosting</span><span class="tag">QA</span>
         </div>
+        </div>
       </div>
 
 
       <div class="project reveal">
+        <figure class="project-media">
+          <img src="project-feel-it.svg" alt="Feel It Android game using touch input and vibration patterns for screen-free play" width="960" height="600" decoding="async">
+        </figure>
+        <div class="project-content">
         <div class="project-top">
           <div class="project-title">Feel it!!</div>
           <div class="project-date">Sep 2025</div>
@@ -377,10 +399,15 @@
           <a class="btn btn-primary" href="https://github.com/mynameisatif/Feel-it-.git">View code →</a>&ensp;&ensp;
           <a class="btn btn-primary" href="https://www.linkedin.com/posts/mohd-aatif-sayyed_github-mynameisatiffeel-it-activity-7328508216479322112-bUut?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD0toe4BDwx_S5KSyKUD9K3sPkabrV-tFPo">View detail ↗</a>
 
+        </div>
       </div>
 
       
       <div class="project reveal">
+        <figure class="project-media">
+          <img src="project-codlang.svg" alt="CodLang app translating text between readable messages and a custom encoded alphabet" width="960" height="600" decoding="async">
+        </figure>
+        <div class="project-content">
         <div class="project-top">
           <div class="project-title">CodLang</div>
           <div class="project-date">March 2024</div>
@@ -402,9 +429,14 @@
           <a class="btn btn-primary" href="https://github.com/mynameisatif/Codlang-.git">View code →</a>&ensp;&ensp;
           <a class="btn btn-primary" href="https://mynameisatif.github.io/Codlang-/">Live demo ↗</a>
 
+        </div>
       </div>
 
       <div class="case-panel reveal" style="margin-top:36px;">
+        <figure class="project-media case-media">
+          <img src="project-zerodha-architecture.svg" alt="Hybrid cloud architecture separating on-premise order management from AWS customer-facing services" width="960" height="600" decoding="async">
+        </figure>
+        <div class="case-content">
         <div class="case-top">
           <div>
             <div class="case-kicker">Case Study</div>
@@ -436,6 +468,7 @@
         
         <a class="btn btn-primary" href="ZERODHA CASE STUDY.pdf">View details ↗</a>
 
+        </div>
       </div>
     </div>
   </section>
@@ -451,59 +484,67 @@
         <div class="cert-card">
           <span class="cert-icon">✓</span>
           <div class="cert-name">Kubernetes for Absolute Beginner</div>
-          <div class="cert-date">Completed June, 2026</div>
-          <div class="cert-issuer">KodeKloud &amp; Certification</div><br>
-          <a class="clink" href="Kubernates for Absolute Beginner.pdf" target="_blank" rel="noopener">view</a>
+          <div class="cert-meta"><span class="cert-issuer">KodeKloud</span><span class="cert-date">June 2026</span></div>
+          <p class="cert-summary">Learned Kubernetes architecture, core cluster components, and how to deploy and manage containerized workloads.</p>
+          <div class="cert-skills"><span>Kubernetes</span><span>kubectl</span><span>Containers</span></div>
+          <a class="cert-link" href="Kubernates for Absolute Beginner.pdf" target="_blank" rel="noopener">View certificate <span aria-hidden="true">↗</span></a>
         </div>
         <div class="cert-card">
           <span class="cert-icon">✓</span>
           <div class="cert-name">AWS Technical Essentials</div>
-          <div class="cert-date">Completed Jan 30, 2026</div>
-          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
-          <a class="clink" href="AWS Partner Accreditation (Technical).pdf">view</a>
+          <div class="cert-meta"><span class="cert-issuer">AWS Training &amp; Certification</span><span class="cert-date">January 30, 2026</span></div>
+          <p class="cert-summary">Built a foundation in AWS cloud concepts, core services, and how infrastructure supports secure, scalable workloads.</p>
+          <div class="cert-skills"><span>AWS</span><span>Cloud fundamentals</span><span>Core services</span></div>
+          <a class="cert-link" href="AWS Partner Accreditation (Technical).pdf" target="_blank" rel="noopener">View certificate <span aria-hidden="true">↗</span></a>
         </div>
         <div class="cert-card">
           <span class="cert-icon">✓</span>
           <div class="cert-name">AWS Partner: Cloud Economics Essentials</div>
-          <div class="cert-date">Completed Jan 31, 2026</div>
-          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
-          <a class="clink" href="AWS Cloud Economics.pdf" target="_blank" rel="noopener">view</a>
+          <div class="cert-meta"><span class="cert-issuer">AWS Training &amp; Certification</span><span class="cert-date">January 31, 2026</span></div>
+          <p class="cert-summary">Learned how cloud adoption changes cost models and how AWS pricing and consumption choices affect total cost of ownership.</p>
+          <div class="cert-skills"><span>Cloud economics</span><span>AWS pricing</span><span>Cost optimization</span></div>
+          <a class="cert-link" href="AWS Cloud Economics.pdf" target="_blank" rel="noopener">View certificate <span aria-hidden="true">↗</span></a>
         </div>
         <div class="cert-card">
           <span class="cert-icon">✓</span>
           <div class="cert-name">AWS Partner: Accreditation (Technical)</div>
-          <div class="cert-date">Completed Feb 3, 2026</div>
-          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
-          <a class="clink" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos1a64958b-9bcf-4ce9-91ce-5a0d82ceedec.pdf" target="_blank" rel="noopener">view</a>
+          <div class="cert-meta"><span class="cert-issuer">AWS Training &amp; Certification</span><span class="cert-date">February 3, 2026</span></div>
+          <p class="cert-summary">Studied AWS cloud value, foundational architecture, and how AWS services support customer workloads and business outcomes.</p>
+          <div class="cert-skills"><span>AWS architecture</span><span>Cloud services</span><span>Workload design</span></div>
+          <a class="cert-link" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos1a64958b-9bcf-4ce9-91ce-5a0d82ceedec.pdf" target="_blank" rel="noopener">View certificate <span aria-hidden="true">↗</span></a>
         </div>
         <div class="cert-card">
           <span class="cert-icon">✓</span>
           <div class="cert-name">AWS Partner: Containers on AWS (Technical)</div>
-          <div class="cert-date">Completed Feb 3, 2026</div>
-          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
-          <a class="clink" href="AWS Partner Containers on AWS (Technical).pdf" target="_blank" rel="noopener">view</a>
+          <div class="cert-meta"><span class="cert-issuer">AWS Training &amp; Certification</span><span class="cert-date">February 3, 2026</span></div>
+          <p class="cert-summary">Explored container fundamentals on AWS, including container orchestration options and patterns for deploying workloads.</p>
+          <div class="cert-skills"><span>Containers</span><span>AWS</span><span>Orchestration</span></div>
+          <a class="cert-link" href="AWS Partner Containers on AWS (Technical).pdf" target="_blank" rel="noopener">View certificate <span aria-hidden="true">↗</span></a>
         </div>
         <div class="cert-card">
           <span class="cert-icon">✓</span>
           <div class="cert-name">AWS Partner: Digital Sovereignty on AWS (Technical)</div>
-          <div class="cert-date">Completed Feb 7, 2026</div>
-          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
-          <a class="clink" href="AWS Partner Digital sovereignty on AWS Technical.pdf" target="_blank" rel="noopener">view</a>
+          <div class="cert-meta"><span class="cert-issuer">AWS Training &amp; Certification</span><span class="cert-date">February 7, 2026</span></div>
+          <p class="cert-summary">Learned how sovereignty requirements shape cloud decisions, including data residency, access controls, and governance.</p>
+          <div class="cert-skills"><span>Data sovereignty</span><span>Governance</span><span>Cloud security</span></div>
+          <a class="cert-link" href="AWS Partner Digital sovereignty on AWS Technical.pdf" target="_blank" rel="noopener">View certificate <span aria-hidden="true">↗</span></a>
         </div>
         <div class="cert-card">
           <span class="cert-icon">✓</span>
           <div class="cert-name">AWS Partner: Generative AI Essentials</div>
-          <div class="cert-date">Completed Feb 12, 2026</div>
-          <div class="cert-issuer">AWS Training &amp; Certification</div><br>
-          <a class="clink" href="AWS ML.pdf" target="_blank" rel="noopener">view</a>
+          <div class="cert-meta"><span class="cert-issuer">AWS Training &amp; Certification</span><span class="cert-date">February 12, 2026</span></div>
+          <p class="cert-summary">Covered generative AI fundamentals, common use cases, and how AWS services support responsible AI solutions.</p>
+          <div class="cert-skills"><span>Generative AI</span><span>Machine learning</span><span>AWS AI services</span></div>
+          <a class="cert-link" href="AWS ML.pdf" target="_blank" rel="noopener">View certificate <span aria-hidden="true">↗</span></a>
         </div>
         
         <div class="cert-card">
           <span class="cert-icon">✓</span>
           <div class="cert-name">TechMaze Competition</div>
-          <div class="cert-date">Completed Sep, 2025</div>
-          <div class="cert-issuer">Campus &amp; Certification</div><br>
-          <a class="clink" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos0530f666-f31d-456e-826c-cc37f85b6b1f.jpeg" target="_blank" rel="noopener">view</a>
+          <div class="cert-meta"><span class="cert-issuer">Campus competition</span><span class="cert-date">September 2025</span></div>
+          <p class="cert-summary">Applied analytical thinking and problem-solving in a competitive setting, building confidence in tackling timed technical challenges.</p>
+          <div class="cert-skills"><span>Problem solving</span><span>Analysis</span><span>Teamwork</span></div>
+          <a class="cert-link" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos0530f666-f31d-456e-826c-cc37f85b6b1f.jpeg" target="_blank" rel="noopener">View certificate <span aria-hidden="true">↗</span></a>
 
         </div>
       </div>
@@ -572,7 +613,7 @@
 
 
  
-<script src="script.js" defer></script>
+<script src="redesign.js" defer></script>
 </body>
 </html>
  

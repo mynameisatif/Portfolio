@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" fill="none">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="960" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#1D211D"/><stop offset="1" stop-color="#101214"/></linearGradient><linearGradient id="accent" x1="170" y1="220" x2="790" y2="430" gradientUnits="userSpaceOnUse"><stop stop-color="#FFC15A"/><stop offset="1" stop-color="#FF8A00"/></linearGradient></defs>
+  <rect width="960" height="600" rx="34" fill="url(#bg)"/><path d="M66 86h828" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <circle cx="92" cy="58" r="7" fill="#FF9900"/><circle cx="116" cy="58" r="7" fill="#FFC15A" fill-opacity=".7"/><circle cx="140" cy="58" r="7" fill="#FFFFFF" fill-opacity=".22"/>
+  <text x="76" y="139" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="24" font-weight="700">SKILL SHARE MARKETPLACE</text>
+  <text x="76" y="171" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="16">A community for learning from each other</text>
+  <rect x="78" y="214" width="804" height="300" rx="24" fill="#191D1C" stroke="#FFFFFF" stroke-opacity=".12"/>
+  <rect x="110" y="246" width="414" height="236" rx="18" fill="#141817" stroke="#FFFFFF" stroke-opacity=".1"/>
+  <rect x="136" y="274" width="362" height="68" rx="14" fill="#202524"/>
+  <circle cx="174" cy="308" r="20" fill="#FF9900" fill-opacity=".2"/><path d="M164 308h20m-10-10v20" stroke="#FFC15A" stroke-width="3" stroke-linecap="round"/>
+  <text x="211" y="304" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="16" font-weight="700">Learn a new skill</text>
+  <text x="211" y="326" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="13">Browse community sessions</text>
+  <rect x="136" y="359" width="168" height="96" rx="14" fill="#222827"/><circle cx="168" cy="391" r="16" fill="#FF9900" fill-opacity=".3"/><path d="M160 398c2-10 14-10 16 0m-8-12a5 5 0 1 0 0 .1" stroke="#FFC15A" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="194" y="390" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="13" font-weight="700">Mentor</text><text x="154" y="432" fill="#B5BCB7" font-family="Arial,sans-serif" font-size="12">Share what you know</text>
+  <rect x="326" y="359" width="172" height="96" rx="14" fill="#222827"/><path d="M350 380h26v22h-26zM356 385h14m-14 6h10" stroke="#FFC15A" stroke-width="2.5"/>
+  <text x="386" y="392" fill="#E8E8E2" font-family="Arial,sans-serif" font-size="13" font-weight="700">Session</text><text x="344" y="432" fill="#B5BCB7" font-family="Arial,sans-serif" font-size="12">Connect &amp; practice</text>
+  <circle cx="665" cy="317" r="54" fill="#FF9900" fill-opacity=".13" stroke="#FF9900" stroke-opacity=".55" stroke-width="2"/>
+  <circle cx="806" cy="317" r="54" fill="#FF9900" fill-opacity=".08" stroke="#FF9900" stroke-opacity=".4" stroke-width="2"/>
+  <circle cx="735" cy="431" r="54" fill="#FF9900" fill-opacity=".1" stroke="#FF9900" stroke-opacity=".48" stroke-width="2"/>
+  <path d="M705 317h50m-9-9 9 9-9 9M689 361l27 40m3-12-3 12-11-3M781 361l-27 40m-3-12 3 12 11-3" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="665" y="323" text-anchor="middle" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="14" font-weight="700">Learner</text>
+  <text x="806" y="323" text-anchor="middle" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="14" font-weight="700">Mentor</text>
+  <text x="735" y="437" text-anchor="middle" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="14" font-weight="700">Community</text>
+</svg>

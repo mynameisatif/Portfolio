@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" fill="none">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="960" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#191F26"/><stop offset="1" stop-color="#101214"/></linearGradient><linearGradient id="accent" x1="240" y1="260" x2="740" y2="410" gradientUnits="userSpaceOnUse"><stop stop-color="#FFC15A"/><stop offset="1" stop-color="#FF8A00"/></linearGradient></defs>
+  <rect width="960" height="600" rx="34" fill="url(#bg)"/><path d="M66 86h828" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <circle cx="92" cy="58" r="7" fill="#FF9900"/><circle cx="116" cy="58" r="7" fill="#FFC15A" fill-opacity=".7"/><circle cx="140" cy="58" r="7" fill="#FFFFFF" fill-opacity=".22"/>
+  <text x="76" y="139" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="24" font-weight="700">CODLANG</text>
+  <text x="76" y="171" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="16">Encode and decode messages on Android</text>
+  <rect x="88" y="222" width="348" height="244" rx="22" fill="#191D1C" stroke="#FFFFFF" stroke-opacity=".14"/>
+  <text x="122" y="268" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="14">YOUR MESSAGE</text>
+  <rect x="120" y="290" width="282" height="112" rx="14" fill="#111515" stroke="#FFFFFF" stroke-opacity=".12"/>
+  <text x="145" y="340" fill="#F4F0E7" font-family="Arial,sans-serif" font-size="22">Hello, world!</text>
+  <path d="M120 426h118" stroke="#FF9900" stroke-width="4" stroke-linecap="round"/><circle cx="250" cy="426" r="4" fill="#FFC15A"/>
+  <path d="M468 303h74m-14-12 14 12-14 12M542 380h-74m14-12-14 12 14 12" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="572" y="222" width="300" height="244" rx="22" fill="#191D1C" stroke="#FF9900" stroke-opacity=".52"/>
+  <text x="604" y="268" fill="#9EA5A3" font-family="Arial,sans-serif" font-size="14">CODLANG OUTPUT</text>
+  <rect x="604" y="290" width="236" height="112" rx="14" fill="#111515" stroke="#FFFFFF" stroke-opacity=".12"/>
+  <text x="628" y="338" fill="#FFC15A" font-family="monospace" font-size="24" font-weight="700">C0D · L4NG</text>
+  <text x="628" y="371" fill="#9EA5A3" font-family="monospace" font-size="14">custom alphabet</text>
+  <circle cx="720" cy="508" r="5" fill="#FF9900"/><circle cx="744" cy="508" r="5" fill="#FFFFFF" fill-opacity=".25"/><circle cx="768" cy="508" r="5" fill="#FFFFFF" fill-opacity=".25"/>
+</svg>
