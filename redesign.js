@@ -14,6 +14,18 @@ try{savedTheme=localStorage.getItem('portfolio-theme')}
 catch(error){console.warn('Could not read the saved theme preference.',error)}
 setTheme(savedTheme==='light'?'light':'dark',false);
 if(themeToggle)themeToggle.addEventListener('click',()=>setTheme(root.dataset.theme==='light'?'dark':'light',true));
+const projectItems=[...d.querySelectorAll('#projects .project, #projects .case-panel')],projectsToggle=d.getElementById('projectsToggle');
+if(projectsToggle&&projectItems.length>3){
+const hiddenProjects=projectItems.slice(3);
+hiddenProjects.forEach(project=>project.hidden=true);
+projectsToggle.hidden=false;
+projectsToggle.addEventListener('click',()=>{
+const expanded=projectsToggle.getAttribute('aria-expanded')==='true';
+hiddenProjects.forEach(project=>project.hidden=expanded);
+projectsToggle.setAttribute('aria-expanded',String(!expanded));
+projectsToggle.textContent=expanded?'View more projects':'Show fewer projects';
+});
+}
 const navToggle=d.getElementById('navToggle'),siteNav=d.getElementById('siteNav');
 function setMenu(open){
 if(!navToggle||!siteNav)return;
