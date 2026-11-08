@@ -66,8 +66,8 @@ catch(error){console.warn('Could not save the welcome-screen state.',error)}
 const word=d.getElementById('welcomeWord');
 const greetings=[
 ['स्वागत है','hi'],['સ્વાગત છે','gu'],['سلام','gu'],
-['ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ','gu'],['केम छो','gu'],['खम्मा घणी','gu'],
-['ಸ್ವಾಗತ','kn'],['स्वागतम्','sa'],['Welcome','en']
+['ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ','gu'],['केम छो','gu'],['Welcome','en'],
+['ಸ್ವಾಗತ','kn'],['स्वागतम्','sa'],['खम्मा घणी','gu']
 ];
 let greetingIndex=0;
 const greetingTimer=setInterval(()=>{
