@@ -65,10 +65,9 @@ try{sessionStorage.setItem('portfolio-welcome-seen','true')}
 catch(error){console.warn('Could not save the welcome-screen state.',error)}
 const word=d.getElementById('welcomeWord');
 const greetings=[
-['Welcome','en'],['स्वागत है','hi'],['સ્વાગત છે','gu'],['স্বাগতম','bn'],
-['ସ୍ୱାଗତ','or'],['ಸ್ವಾಗತ','kn'],['സ്വാഗതം','ml'],['ಸ್ವಾಗತ','kn'],
-['స్వాగతం','te'],['স্বাগতম','bn'],['ସ୍ୱାଗତ','or'],['ಸ್ವಾಗತ','kn'],
-['സ്വാഗതം','ml'],['स्वागतम्','sa'],['Welcome','en']
+['स्वागत है','hi'],['સ્વાગત છે','gu'],['سلام','gu'],
+['ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ','gu'],['केम छो','gu'],['खम्मा घणी','gu'],
+['ಸ್ವಾಗತ','kn'],['स्वागतम्','sa'],['Welcome','en']
 ];
 let greetingIndex=0;
 const greetingTimer=setInterval(()=>{
