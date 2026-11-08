@@ -113,12 +113,17 @@ main .project:nth-of-type(even){grid-template-areas:"content media";grid-templat
 #projects .project-content .btn{margin-top:8px}
 #projects .project[hidden],#projects .case-panel[hidden],#projects .projects-toggle[hidden]{display:none}
 #projects .projects-toggle-wrap{display:flex;justify-content:center;margin-top:8px}
+.project-media .aws-cost-icon{display:block;width:100%;height:100%;padding:8%}
+.project-content .web-icon{width:16px;height:16px;vertical-align:-3px;margin-right:5px}
+.project-content .project-note{margin:12px 0 2px;color:var(--text-faint);font-size:12px}
 main .case-panel{display:grid;grid-template-areas:"media content";grid-template-columns:minmax(210px,.82fr) minmax(0,1.18fr);gap:clamp(22px,4vw,48px);align-items:center}
 .case-media{grid-area:media}
 .case-content{grid-area:content;min-width:0}
 .case-content .case-team{overflow-wrap:anywhere}
 #certifications .cert-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:16px}
 #certifications .cert-card{display:flex;flex-direction:column;min-width:0;padding:24px;border-radius:20px}
+#certifications .cert-card[hidden],#certifications .certifications-toggle[hidden]{display:none}
+#certifications .certifications-toggle-wrap{display:flex;justify-content:center;margin-top:20px}
 #certifications .cert-name{font-family:'Kanit',sans-serif;font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.25;margin:0 20px 12px 0;padding:0}
 #certifications .cert-meta{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
 #certifications .cert-issuer,#certifications .cert-date{margin:0;font-size:11px}

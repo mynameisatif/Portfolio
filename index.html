@@ -241,6 +241,60 @@
 
       <div class="project reveal">
         <figure class="project-media">
+          <svg class="aws-cost-icon" viewBox="0 0 640 400" role="img" aria-labelledby="aws-cost-icon-title aws-cost-icon-desc" xmlns="http://www.w3.org/2000/svg">
+            <title id="aws-cost-icon-title">AWS Cloud Cost Estimator dashboard</title>
+            <desc id="aws-cost-icon-desc">A browser dashboard showing cloud service costs and a monthly cost breakdown chart.</desc>
+            <rect x="48" y="46" width="544" height="308" rx="20" fill="var(--panel)" stroke="var(--border)" stroke-width="4"/>
+            <path d="M48 94h544" stroke="var(--border)" stroke-width="4"/>
+            <circle cx="78" cy="70" r="7" fill="var(--accent)"/>
+            <circle cx="102" cy="70" r="7" fill="var(--accent)" opacity=".55"/>
+            <circle cx="126" cy="70" r="7" fill="var(--accent)" opacity=".3"/>
+            <rect x="80" y="125" width="210" height="18" rx="9" fill="var(--text)" opacity=".85"/>
+            <rect x="80" y="157" width="138" height="10" rx="5" fill="var(--text-dim)" opacity=".55"/>
+            <rect x="80" y="195" width="142" height="104" rx="12" fill="var(--bg-alt)" stroke="var(--border)" stroke-width="3"/>
+            <rect x="238" y="195" width="142" height="104" rx="12" fill="var(--bg-alt)" stroke="var(--border)" stroke-width="3"/>
+            <rect x="396" y="195" width="164" height="104" rx="12" fill="var(--bg-alt)" stroke="var(--border)" stroke-width="3"/>
+            <path d="M100 270h24v-34h24v18h24v-48h24v64h10" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="309" cy="247" r="34" fill="none" stroke="var(--border)" stroke-width="13"/>
+            <path d="M309 213a34 34 0 0 1 32 45" fill="none" stroke="var(--accent)" stroke-width="13" stroke-linecap="round"/>
+            <path d="M424 268h24v-26h24v-18h24v44h24" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="80" y="318" width="116" height="10" rx="5" fill="var(--accent)" opacity=".7"/>
+            <rect x="238" y="318" width="96" height="10" rx="5" fill="var(--accent)" opacity=".45"/>
+            <rect x="396" y="318" width="132" height="10" rx="5" fill="var(--accent)" opacity=".7"/>
+          </svg>
+        </figure>
+        <div class="project-content">
+          <div class="project-top">
+            <div class="project-title">AWS Cloud Cost Estimator</div>
+            <div class="project-date">July 2026</div>
+          </div>
+          <div class="pipeline">
+            <span class="flow-dot"></span>
+            <span class="stage">HTML5</span><span class="arrow">→</span>
+            <span class="stage">CSS3</span><span class="arrow">→</span>
+            <span class="stage">JavaScript</span><span class="arrow">→</span>
+            <span class="stage">HTML Canvas</span>
+          </div>
+          <ul class="project-desc">
+            <li>Built a responsive browser-based estimator for illustrative monthly and yearly Amazon EC2, S3, RDS, and data-transfer costs.</li>
+            <li>Added configurable service inputs, input validation, and region-based demonstration adjustments.</li>
+            <li>Visualized costs with an interactive Canvas chart and percentage breakdown, with CSV report export.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span>
+            <span class="tag">HTML Canvas</span><span class="tag">CSV export</span><span class="tag">Responsive UI</span>
+          </div>
+          <p class="project-note">Uses illustrative pricing assumptions, not live AWS pricing.</p>
+          <a class="btn btn-primary" href="https://github.com/mynameisatif/-AWS-Cloud-Cost-Estimator.git" target="_blank" rel="noopener">View code →</a>
+          <a class="btn btn-primary" href="https://mynameisatif.github.io/-AWS-Cloud-Cost-Estimator/" target="_blank" rel="noopener">
+            <svg class="web-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Live demo ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="project reveal">
+        <figure class="project-media">
           <img src="project-mailflow.svg" alt="MailFlow Pro email delivery flow from Google OAuth through the Gmail API to individual recipients" width="960" height="600" decoding="async">
         </figure>
         <div class="project-content">
@@ -482,7 +536,7 @@
         <h2 class="sec-title">Certifications &amp; Achievements</h2>
         <span class="sec-sub">// aws_training_and_certification</span>
       </div>
-      <div class="cert-grid reveal">
+      <div class="cert-grid reveal" id="certificationsGrid">
         <div class="cert-card">
           <span class="cert-icon">✓</span>
           <div class="cert-name">Kubernetes for Absolute Beginner</div>
@@ -549,6 +603,9 @@
           <a class="cert-link" href="https://d3s27eh1wskpwv.cloudfront.net/placement/verification_photos0530f666-f31d-456e-826c-cc37f85b6b1f.jpeg" target="_blank" rel="noopener">View certificate <span aria-hidden="true">↗</span></a>
 
         </div>
+      </div>
+      <div class="certifications-toggle-wrap">
+        <button class="btn btn-primary certifications-toggle" id="certificationsToggle" type="button" aria-expanded="false" aria-controls="certificationsGrid" hidden>View more certifications</button>
       </div>
     </div>
   </section>

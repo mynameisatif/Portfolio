@@ -26,6 +26,18 @@ projectsToggle.setAttribute('aria-expanded',String(!expanded));
 projectsToggle.textContent=expanded?'View more projects':'Show fewer projects';
 });
 }
+const certificationItems=[...d.querySelectorAll('#certifications .cert-card')],certificationsToggle=d.getElementById('certificationsToggle');
+if(certificationsToggle&&certificationItems.length>3){
+const hiddenCertifications=certificationItems.slice(3);
+hiddenCertifications.forEach(certification=>certification.hidden=true);
+certificationsToggle.hidden=false;
+certificationsToggle.addEventListener('click',()=>{
+const expanded=certificationsToggle.getAttribute('aria-expanded')==='true';
+hiddenCertifications.forEach(certification=>certification.hidden=expanded);
+certificationsToggle.setAttribute('aria-expanded',String(!expanded));
+certificationsToggle.textContent=expanded?'View more certifications':'Show fewer certifications';
+});
+}
 const navToggle=d.getElementById('navToggle'),siteNav=d.getElementById('siteNav');
 function setMenu(open){
 if(!navToggle||!siteNav)return;
