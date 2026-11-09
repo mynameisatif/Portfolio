@@ -572,6 +572,10 @@ main{
 main{
     padding-top:64px;
 }
+.contact-links .clink{
+        
+        font-size:20px;
+    }
 
 /* =========================
    MOBILE
@@ -623,13 +627,14 @@ main{
         display:flex;
         flex-direction:column;
         gap:12px;
-    }
-
-    .contact-links .clink{
+      }
+      
+      .contact-links .clink{
         width:100%;
         text-align:center;
         overflow-wrap:anywhere;
         word-break:break-word;
+        font-size:20px;
     }
 
     h1.name{
